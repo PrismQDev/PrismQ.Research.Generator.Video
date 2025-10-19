@@ -21,6 +21,10 @@ Successfully implemented a complete video generation system that applies evidenc
   - Keyframes & Story Impact (hooks, pacing)
   - Virality Factors (algorithmic vs. social)
   - Next Steps (measurement, testing, prediction)
+- **Deep-Dive Sections** (New):
+  - **Color Theory**: Psychology, harmony systems, saturation, grading, platform optimization
+  - **Video Flow**: Pacing, rhythm patterns, continuity, transitions, information density
+  - **Advanced Visual**: Composition, depth, lighting, texture, scale, negative space, Gestalt
 - **Platform Coverage**: YouTube Shorts, TikTok, Instagram Reels
 
 #### 2. Constant Motion: Nothing Static for >300ms

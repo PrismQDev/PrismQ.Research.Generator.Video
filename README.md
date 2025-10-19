@@ -26,6 +26,11 @@ See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual p
 - 27 research questions across visual engagement, UX, virality, and platform-specific factors
 - Platform-specific optimization guidelines for YouTube Shorts, TikTok, and Instagram Reels
 
+**New Deep-Dive Sections:**
+- **Color Theory**: Color psychology, harmony systems, saturation strategies, grading techniques, platform-specific optimization
+- **Video Flow**: Pacing fundamentals, visual rhythm patterns, continuity techniques, scene transitions, information density
+- **Advanced Visual Principles**: Composition rules, depth/layering, lighting, texture, scale, negative space, Gestalt principles
+
 ### Keyframe Generation Guide
 See [KEYFRAME_GUIDE.md](KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
 
