@@ -40,6 +40,17 @@ See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual p
 
 **Czech Translation:** See [RESEARCH_CS.md](RESEARCH_CS.md) for complete Czech translation of research documentation.
 
+### Audio Story to Video Generation Guide
+See [AUDIO_TO_VIDEO_GUIDE.md](AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
+
+- **Audio Analysis**: Speech-to-text with emotion detection and timing analysis
+- **AI Prompt Generation**: Context-aware visual prompts synchronized with audio content
+- **Keyframe from Audio**: Automatic keyframe timing based on narration beats and emotion
+- **Movement Application**: All research-based movement rules applied to audio-generated visuals
+- **Platform-Specific Examples**: TikTok Reddit stories, YouTube educational, Instagram aesthetic
+- **Complete Pipeline**: Full AudioToVideoGenerator class with production-ready code
+- **Prompt Engineering**: Best practices, emotion-specific templates, comprehensive prompt library
+
 ### Realistic Video Generation Guide
 See [REALISTIC_VIDEO_GUIDE.md](REALISTIC_VIDEO_GUIDE.md) for comprehensive guidance on generating realistic videos that implement research principles:
 
