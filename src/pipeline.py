@@ -7,11 +7,18 @@ import numpy as np
 from typing import List, Optional
 import os
 
-from .config import GenerationConfig
-from .generator import VideoGenerator
-from .motion import MotionEffects
-from .visual_style import VisualStyle
-from .overlay import Overlay
+try:
+    from .config import GenerationConfig
+    from .generator import VideoGenerator
+    from .motion import MotionEffects
+    from .visual_style import VisualStyle
+    from .overlay import Overlay
+except ImportError:
+    from config import GenerationConfig
+    from generator import VideoGenerator
+    from motion import MotionEffects
+    from visual_style import VisualStyle
+    from overlay import Overlay
 
 
 class VideoPipeline:

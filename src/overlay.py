@@ -51,7 +51,7 @@ class Overlay:
         pos_y = int(h * 0.25)
         
         # Font settings
-        font = cv2.FONT_HERSHEY_BOLD
+        font = cv2.FONT_HERSHEY_DUPLEX  # Bold-like font
         font_scale = self.config.caption_font_size / 30.0
         thickness = 3
         
