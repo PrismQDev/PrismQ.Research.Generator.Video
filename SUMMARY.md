@@ -9,12 +9,19 @@ Successfully implemented a complete video generation system that applies evidenc
 
 #### 1. Research: Visual Principles That Boost Watch Time
 - **File**: `RESEARCH.md`
-- **Content**: Comprehensive documentation of visual engagement principles
+- **Content**: Comprehensive documentation of visual engagement principles and virality research
 - **Key Findings**:
   - Constant motion increases retention by 23-47%
   - High-contrast edges boost initial engagement by 31-43%
   - Pattern breaks every 1.2-2.5s maintain attention
   - Optimal parameters for motion amplitude, color saturation, and timing
+- **Research Questions**: 27 comprehensive questions across:
+  - Visual Engagement (motion, color, quality)
+  - Overlays & UX (progress bars, subtitles)
+  - Keyframes & Story Impact (hooks, pacing)
+  - Virality Factors (algorithmic vs. social)
+  - Next Steps (measurement, testing, prediction)
+- **Platform Coverage**: YouTube Shorts, TikTok, Instagram Reels
 
 #### 2. Constant Motion: Nothing Static for >300ms
 - **File**: `src/motion.py`

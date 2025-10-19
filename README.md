@@ -16,12 +16,14 @@ This project implements a complete video generation pipeline based on research i
 
 ## Research Foundation
 
-See [RESEARCH.md](RESEARCH.md) for detailed documentation on the visual principles that maximize viewer engagement and watch time. Key findings include:
+See [RESEARCH.md](RESEARCH.md) for comprehensive documentation on visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
 
 - 23-47% higher retention rates with continuous micro-movements
 - 31-43% increase in initial engagement with high-contrast edges
 - Optimal pattern break timing: every 1.2-2.5 seconds
 - 9:16 vertical format at 30 fps for platform optimization
+- 27 research questions across visual engagement, UX, virality, and platform-specific factors
+- Platform-specific optimization guidelines for YouTube Shorts, TikTok, and Instagram Reels
 
 ## Installation
 
