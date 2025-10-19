@@ -16,7 +16,7 @@ This project implements a complete video generation pipeline based on research i
 
 ## Research Foundation
 
-See [RESEARCH.md](RESEARCH.md) for comprehensive documentation on visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
+See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
 
 - 23-47% higher retention rates with continuous micro-movements
 - 31-43% increase in initial engagement with high-contrast edges
