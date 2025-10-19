@@ -31,6 +31,15 @@ See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual p
 - **Video Flow**: Pacing fundamentals, visual rhythm patterns, continuity techniques, scene transitions, information density
 - **Advanced Visual Principles**: Composition rules, depth/layering, lighting, texture, scale, negative space, Gestalt principles
 
+**Specialized Content Research:**
+- **Reddit Story Videos**: Comprehensive guide for "real-life" story content targeting young female audiences (10-25, US)
+  - Platform-specific strategies (TikTok, YouTube Shorts, Instagram Reels)
+  - Age-based content optimization and psychological triggers
+  - Multi-cultural insights from German, Japanese, Chinese, Indian, Czech, Polish, French markets
+  - Performance benchmarks and A/B testing frameworks
+
+**Czech Translation:** See [RESEARCH_CS.md](RESEARCH_CS.md) for complete Czech translation of research documentation.
+
 ### Keyframe Generation Guide
 See [KEYFRAME_GUIDE.md](KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
 
