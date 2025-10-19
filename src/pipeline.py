@@ -6,19 +6,23 @@ import cv2
 import numpy as np
 from typing import List, Optional
 import os
+import sys
 
-try:
-    from .config import GenerationConfig
-    from .generator import VideoGenerator
-    from .motion import MotionEffects
-    from .visual_style import VisualStyle
-    from .overlay import Overlay
-except ImportError:
+# Support both package and standalone execution
+if __name__ == '__main__' or '.' not in __name__:
+    # Running as standalone script
     from config import GenerationConfig
     from generator import VideoGenerator
     from motion import MotionEffects
     from visual_style import VisualStyle
     from overlay import Overlay
+else:
+    # Running as part of package
+    from .config import GenerationConfig
+    from .generator import VideoGenerator
+    from .motion import MotionEffects
+    from .visual_style import VisualStyle
+    from .overlay import Overlay
 
 
 class VideoPipeline:
