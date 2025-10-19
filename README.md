@@ -40,6 +40,16 @@ See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual p
 
 **Czech Translation:** See [RESEARCH_CS.md](RESEARCH_CS.md) for complete Czech translation of research documentation.
 
+### Realistic Video Generation Guide
+See [REALISTIC_VIDEO_GUIDE.md](REALISTIC_VIDEO_GUIDE.md) for comprehensive guidance on generating realistic videos that implement research principles:
+
+- **AI Script Integration**: Connect AI-generated scripts to visual timing and movement patterns
+- **Multiple Movement Types**: Constant micro-movement, parallax layers, pattern breaks, oscillating movements, directional transitions
+- **Platform-Specific Examples**: Complete implementations for TikTok, YouTube Shorts, and Instagram Reels
+- **Visual Styles**: Stock footage integration, AI-generated backgrounds, hybrid approaches
+- **Implementation Code**: Full Python examples for realistic video generation with multiple movement layers
+- **Production Recommendations**: Asset preparation, performance optimization, quality assurance, A/B testing
+
 ### Keyframe Generation Guide
 See [KEYFRAME_GUIDE.md](KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
 
