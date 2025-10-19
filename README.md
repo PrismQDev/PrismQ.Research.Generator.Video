@@ -14,8 +14,9 @@ This project implements a complete video generation pipeline based on research i
 - ✅ **Overlay System**: Story captions + progress bar
 - ✅ **Export**: 1080×1920 @ 30 fps optimized for vertical video
 
-## Research Foundation
+## Documentation
 
+### Research Foundation
 See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
 
 - 23-47% higher retention rates with continuous micro-movements
@@ -24,6 +25,15 @@ See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual p
 - 9:16 vertical format at 30 fps for platform optimization
 - 27 research questions across visual engagement, UX, virality, and platform-specific factors
 - Platform-specific optimization guidelines for YouTube Shorts, TikTok, and Instagram Reels
+
+### Keyframe Generation Guide
+See [KEYFRAME_GUIDE.md](KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
+
+- Subtitle-to-scene segmentation strategies
+- Platform-specific keyframe timing (YouTube Shorts, TikTok, Instagram Reels)
+- Visual design principles for hook, transition, and completion keyframes
+- Implementation code examples and workflows
+- Best practices for maximizing engagement through scene-based visual structure
 
 ## Installation
 
