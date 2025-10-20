@@ -70,6 +70,16 @@ See [KEYFRAME_GUIDE.md](docs/KEYFRAME_GUIDE.md) for a complete guide on generati
 - Implementation code examples and workflows
 - Best practices for maximizing engagement through scene-based visual structure
 
+### Universal Keyframe Generation for 2-3 Minute Videos
+See [UNIVERSAL_KEYFRAME_GUIDE.md](docs/UNIVERSAL_KEYFRAME_GUIDE.md) for optimal keyframe generation strategy for longer-form content:
+
+- Scene-based keyframe architecture for 2-3 minute videos
+- Two-keyframe approach: scene end + scene start transitions
+- Strategic transition effects for maximum retention
+- Platform-universal specifications (YouTube, TikTok, Instagram, Facebook, etc.)
+- Complete implementation with code examples
+- Works across all major video platforms with H.264/MP4 standard
+
 ### SDXL High-Quality Keyframe Generation
 See [SDXL_KEYFRAME_GUIDE.md](docs/SDXL_KEYFRAME_GUIDE.md) for comprehensive guidance on generating high-quality keyframes locally using SDXL:
 
@@ -263,8 +273,9 @@ PrismQ.Research.Generator.Video/
 ├── docs/
 │   ├── RESEARCH.md          # Visual principles research
 │   ├── RESEARCH_CS.md       # Czech translation of research
-│   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide
+│   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide (short-form)
 │   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
+│   ├── UNIVERSAL_KEYFRAME_GUIDE.md  # Universal keyframe guide (2-3 min videos)
 │   ├── SDXL_KEYFRAME_GUIDE.md     # SDXL high-quality keyframe generation
 │   ├── AUDIO_TO_VIDEO_GUIDE.md    # Audio-to-video generation guide
 │   ├── AUDIO_TO_VIDEO_GUIDE_CS.md # Czech audio-to-video guide
