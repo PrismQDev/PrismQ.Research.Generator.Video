@@ -154,8 +154,8 @@
    - docs/AUDIO_TO_VIDEO_GUIDE.md (průvodce generováním z audia na video)
    - docs/AUDIO_TO_VIDEO_GUIDE_CS.md (český průvodce audio-to-video)
    - docs/REALISTIC_VIDEO_GUIDE.md (průvodce generováním realistického videa)
-   - SUMMARY.md (tento soubor)
-   - SUMMARY_CS.md (tento soubor v češtině)
+   - SUMMARY.md (anglický originál)
+   - SUMMARY_CS.md (tento soubor - český překlad)
 
 2. **Zdrojový Kód**
    - 6 základních modulů (config, generator, motion, visual_style, overlay, pipeline)
