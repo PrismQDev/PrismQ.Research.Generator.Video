@@ -17,7 +17,7 @@ This project implements a complete video generation pipeline based on research i
 ## Documentation
 
 ### Research Foundation
-See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
+See [RESEARCH.md](docs/RESEARCH.md) for comprehensive documentation covering visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
 
 - 23-47% higher retention rates with continuous micro-movements
 - 31-43% increase in initial engagement with high-contrast edges
@@ -38,10 +38,10 @@ See [RESEARCH.md](RESEARCH.md) for comprehensive documentation covering visual p
   - Multi-cultural insights from German, Japanese, Chinese, Indian, Czech, Polish, French markets
   - Performance benchmarks and A/B testing frameworks
 
-**Czech Translation:** See [RESEARCH_CS.md](RESEARCH_CS.md) for complete Czech translation of research documentation.
+**Czech Translation:** See [RESEARCH_CS.md](docs/RESEARCH_CS.md) for complete Czech translation of research documentation.
 
 ### Audio Story to Video Generation Guide
-See [AUDIO_TO_VIDEO_GUIDE.md](AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
+See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
 
 - **Audio Analysis**: Speech-to-text with emotion detection and timing analysis
 - **AI Prompt Generation**: Context-aware visual prompts synchronized with audio content
@@ -52,7 +52,7 @@ See [AUDIO_TO_VIDEO_GUIDE.md](AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidanc
 - **Prompt Engineering**: Best practices, emotion-specific templates, comprehensive prompt library
 
 ### Realistic Video Generation Guide
-See [REALISTIC_VIDEO_GUIDE.md](REALISTIC_VIDEO_GUIDE.md) for comprehensive guidance on generating realistic videos that implement research principles:
+See [REALISTIC_VIDEO_GUIDE.md](docs/REALISTIC_VIDEO_GUIDE.md) for comprehensive guidance on generating realistic videos that implement research principles:
 
 - **AI Script Integration**: Connect AI-generated scripts to visual timing and movement patterns
 - **Multiple Movement Types**: Constant micro-movement, parallax layers, pattern breaks, oscillating movements, directional transitions
@@ -62,7 +62,7 @@ See [REALISTIC_VIDEO_GUIDE.md](REALISTIC_VIDEO_GUIDE.md) for comprehensive guida
 - **Production Recommendations**: Asset preparation, performance optimization, quality assurance, A/B testing
 
 ### Keyframe Generation Guide
-See [KEYFRAME_GUIDE.md](KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
+See [KEYFRAME_GUIDE.md](docs/KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
 
 - Subtitle-to-scene segmentation strategies
 - Platform-specific keyframe timing (YouTube Shorts, TikTok, Instagram Reels)
@@ -249,7 +249,14 @@ black --check src/
 ```
 PrismQ.Research.Generator.Video/
 ├── README.md                 # This file
-├── RESEARCH.md              # Visual principles research
+├── docs/
+│   ├── RESEARCH.md          # Visual principles research
+│   ├── RESEARCH_CS.md       # Czech translation of research
+│   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide
+│   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
+│   ├── AUDIO_TO_VIDEO_GUIDE.md    # Audio-to-video generation guide
+│   ├── AUDIO_TO_VIDEO_GUIDE_CS.md # Czech audio-to-video guide
+│   └── REALISTIC_VIDEO_GUIDE.md   # Realistic video generation guide
 ├── requirements.txt         # Python dependencies
 ├── .gitignore              # Git ignore patterns
 ├── example.py              # Example usage script

@@ -8,7 +8,7 @@ Successfully implemented a complete video generation system that applies evidenc
 ### ✅ Completed Requirements
 
 #### 1. Research: Visual Principles That Boost Watch Time
-- **File**: `RESEARCH.md`
+- **File**: `docs/RESEARCH.md`
 - **Content**: Comprehensive documentation covering visual engagement principles and virality research
 - **Key Findings**:
   - Constant motion increases retention by 23-47%
@@ -147,7 +147,13 @@ Successfully implemented a complete video generation system that applies evidenc
 
 1. **Documentation**
    - README.md (comprehensive usage guide)
-   - RESEARCH.md (visual principles research)
+   - docs/RESEARCH.md (visual principles research)
+   - docs/RESEARCH_CS.md (Czech translation)
+   - docs/KEYFRAME_GUIDE.md (keyframe generation guide)
+   - docs/KEYFRAME_GUIDE_CS.md (Czech keyframe guide)
+   - docs/AUDIO_TO_VIDEO_GUIDE.md (audio-to-video generation guide)
+   - docs/AUDIO_TO_VIDEO_GUIDE_CS.md (Czech audio-to-video guide)
+   - docs/REALISTIC_VIDEO_GUIDE.md (realistic video generation guide)
    - SUMMARY.md (this file)
 
 2. **Source Code**
