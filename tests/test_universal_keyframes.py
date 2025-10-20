@@ -173,8 +173,9 @@ class TestTransitionRenderer(unittest.TestCase):
     
     def setUp(self):
         """Set up test fixtures."""
-        self.frame_a = np.ones((1080, 1920, 3), dtype=np.uint8) * 100
-        self.frame_b = np.ones((1080, 1920, 3), dtype=np.uint8) * 200
+        # 9:16 vertical format (1080x1920) - height x width in numpy
+        self.frame_a = np.ones((1920, 1080, 3), dtype=np.uint8) * 100
+        self.frame_b = np.ones((1920, 1080, 3), dtype=np.uint8) * 200
     
     def test_apply_crossfade(self):
         """Test crossfade transition."""
@@ -188,7 +189,7 @@ class TestTransitionRenderer(unittest.TestCase):
         
         # At 50% progress, should be blend
         result = TransitionRenderer.apply_crossfade(self.frame_a, self.frame_b, 0.5)
-        expected = np.ones((1080, 1920, 3), dtype=np.uint8) * 150
+        expected = np.ones((1920, 1080, 3), dtype=np.uint8) * 150
         np.testing.assert_array_equal(result, expected)
     
     def test_apply_dip_to_black_fade_out(self):
@@ -220,7 +221,8 @@ class TestTransitionRenderer(unittest.TestCase):
         result = TransitionRenderer.apply_wipe(self.frame_a, self.frame_b, 0.5, 'left_to_right')
         
         # Left half should be frame_b, right half should be frame_a
-        mid_point = 1920 // 2
+        # For 9:16 format (1920 height x 1080 width)
+        mid_point = 1080 // 2
         np.testing.assert_array_equal(result[:, :mid_point], self.frame_b[:, :mid_point])
         np.testing.assert_array_equal(result[:, mid_point:], self.frame_a[:, mid_point:])
     
@@ -229,7 +231,8 @@ class TestTransitionRenderer(unittest.TestCase):
         result = TransitionRenderer.apply_wipe(self.frame_a, self.frame_b, 0.5, 'top_to_bottom')
         
         # Top half should be frame_b, bottom half should be frame_a
-        mid_point = 1080 // 2
+        # For 9:16 format (1920 height x 1080 width)
+        mid_point = 1920 // 2
         np.testing.assert_array_equal(result[:mid_point, :], self.frame_b[:mid_point, :])
         np.testing.assert_array_equal(result[mid_point:, :], self.frame_a[mid_point:, :])
     
@@ -245,7 +248,7 @@ class TestTransitionRenderer(unittest.TestCase):
         """Test the apply_transition dispatcher method."""
         # Test crossfade
         result = TransitionRenderer.apply_transition(self.frame_a, self.frame_b, 'crossfade', 0.5)
-        expected = np.ones((1080, 1920, 3), dtype=np.uint8) * 150
+        expected = np.ones((1920, 1080, 3), dtype=np.uint8) * 150
         np.testing.assert_array_equal(result, expected)
         
         # Test zoom_in

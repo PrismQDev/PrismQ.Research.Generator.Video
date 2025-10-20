@@ -76,6 +76,7 @@ See [UNIVERSAL_KEYFRAME_GUIDE.md](docs/UNIVERSAL_KEYFRAME_GUIDE.md) for optimal 
 - Scene-based keyframe architecture for 2-3 minute videos
 - Two-keyframe approach: scene end + scene start transitions
 - Strategic transition effects for maximum retention
+- Optimized for 9:16 vertical format (1080×1920) - mobile-first
 - Platform-universal specifications (YouTube, TikTok, Instagram, Facebook, etc.)
 - Complete implementation with code examples
 - Works across all major video platforms with H.264/MP4 standard

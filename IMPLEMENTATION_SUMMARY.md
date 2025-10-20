@@ -136,12 +136,19 @@ This implementation provides a **complete solution** for optimal keyframe genera
 - **Subtle slide**: 0.4s (minimal)
 
 ### Platform Compatibility
-✅ **YouTube** (16:9, 1920×1080)
+
+**Primary Format: 9:16 Vertical (1080×1920) - Mobile-First**
 ✅ **TikTok** (9:16, 1080×1920)
 ✅ **Instagram Reels** (9:16, 1080×1920)
-✅ **Facebook** (1:1, 1080×1080 or 16:9)
-✅ **LinkedIn** (16:9, 1920×1080)
-✅ **Twitter/X** (16:9, 1920×1080)
+✅ **YouTube Shorts** (9:16, 1080×1920)
+
+**Adaptable from 9:16:**
+✅ **YouTube** (16:9, letterbox or crop from 9:16)
+✅ **Facebook** (1:1, crop from 9:16 or 16:9 adapt)
+✅ **LinkedIn** (16:9, letterbox from 9:16)
+✅ **Twitter/X** (16:9, letterbox from 9:16)
+
+**Rationale:** For 2-3 minute videos, mobile consumption on TikTok, Reels, and Shorts is dominant. Starting with 9:16 as primary ensures optimal viewing experience on these platforms.
 
 ### Encoding Specifications
 - **Codec**: H.264 (libx264)

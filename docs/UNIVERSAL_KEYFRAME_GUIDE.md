@@ -4,11 +4,14 @@
 
 This guide provides an **optimal strategy for keyframe generation** specifically designed for **2-3 minute videos** that work across **all major video platforms** (YouTube, TikTok, Instagram, Facebook, Vimeo, etc.).
 
+**Primary Format: 9:16 Vertical (1080×1920)** - Optimized for mobile-first consumption on TikTok, Instagram Reels, and YouTube Shorts where 2-3 minute content thrives.
+
 Unlike short-form content (15-60 seconds), longer-form videos require a different approach:
 - **Scene-based structure**: Clear scene boundaries with defined start/end points
 - **Minimal intermediate frames**: Only scene transition keyframes (scene end → scene start)
 - **Strategic transition effects**: Optimize for viewer retention between scenes
 - **Universal compatibility**: Platform-agnostic specifications that work everywhere
+- **Mobile-first design**: 9:16 vertical format as primary, adaptable to other platforms
 
 ---
 
@@ -371,12 +374,12 @@ universal_video_config = {
 
 | Aspect Ratio | Resolution | Use Case | Platforms |
 |--------------|-----------|----------|-----------|
-| 16:9 (Landscape) | 1920×1080 | YouTube, Facebook, LinkedIn | ✅ All |
 | 9:16 (Vertical) | 1080×1920 | TikTok, Instagram Reels, YouTube Shorts | ✅ All |
+| 16:9 (Landscape) | 1920×1080 | YouTube, Facebook, LinkedIn | ✅ All |
 | 1:1 (Square) | 1080×1080 | Instagram Feed, Facebook | ✅ All |
 | 4:5 (Portrait) | 1080×1350 | Instagram Feed | ✅ All |
 
-**Recommendation for maximum reach**: Render in **1920×1080 (16:9)** as primary, then crop to vertical/square for specific platforms.
+**Recommendation for 2-3 minute videos**: Render in **1080×1920 (9:16)** as primary format for mobile-first consumption. This vertical format is optimal for TikTok, Instagram Reels, and YouTube Shorts where 2-3 minute content performs best.
 
 ### Keyframe Interval (GOP Size)
 
@@ -776,17 +779,19 @@ transition_guidelines = {
 
 **Test on multiple platforms before publishing:**
 
-1. **YouTube** (16:9, 1920×1080)
+1. **TikTok/Instagram Reels/YouTube Shorts** (9:16, 1080×1920) - PRIMARY
+   - Check smooth playback on mobile devices
+   - Verify transitions render correctly
+   - Test autoplay behavior
+   - Verify vertical composition maintains focal points
+
+2. **YouTube** (16:9, 1920×1080 or adapt from 9:16)
    - Check smooth playback at all resolutions
    - Verify transitions render correctly
    - Test scrubbing behavior
+   - Letterbox or crop from 9:16 source
 
-2. **TikTok/Instagram Reels** (9:16, 1080×1920)
-   - Verify vertical crop looks good
-   - Check mobile playback smoothness
-   - Test autoplay behavior
-
-3. **Facebook** (1:1, 1080×1080)
+3. **Facebook** (1:1, 1080×1080 or crop from 9:16)
    - Verify square crop maintains composition
    - Check feed autoplay
    - Test sound-on/sound-off scenarios
