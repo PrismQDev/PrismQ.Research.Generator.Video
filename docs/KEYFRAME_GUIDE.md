@@ -2,7 +2,14 @@
 
 ## Overview
 
-This guide explains how to generate strategic keyframes from subtitle-derived scenes for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Keyframes serve as visual anchors that enhance narrative structure, maintain viewer attention, and optimize for virality.
+This guide explains how to generate **strategic keyframes** from subtitle-derived scenes for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels).  
+
+Keyframes serve as visual anchors that:
+- Reinforce narrative structure  
+- Capture and sustain viewer attention  
+- Prevent habituation through visual variety  
+- Sync visuals to narration/subtitles  
+- Optimize for retention and virality
 
 ## Table of Contents
 
@@ -20,34 +27,33 @@ This guide explains how to generate strategic keyframes from subtitle-derived sc
 
 ### What Are Keyframes?
 
-In short-form video, **keyframes** are critical visual moments that:
-- Mark scene transitions or narrative beats
-- Capture viewer attention during key moments
-- Serve as visual hooks for engagement
-- Provide visual variety to prevent habituation
-- Sync with subtitle/narration timing for maximum impact
+In short-form video, **keyframes** are the critical visual moments that:
+- Mark scene transitions or narrative beats  
+- Provide visual hooks to capture attention  
+- Reinforce subtitle/narration timing  
+- Prevent monotony through variation
 
 ### Types of Keyframes
 
-1. **Hook Keyframe** (0-3 seconds)
-   - Purpose: Prevent immediate swipe-away
-   - Visual: Maximum contrast, motion, intrigue
-   - Subtitle sync: Opening statement or question
+1. **Hook Keyframe (0–3s)**  
+   - Purpose: Prevent swipe-away  
+   - Visuals: High contrast, bold motion, intrigue  
+   - Sync: Opening statement or question  
 
-2. **Transition Keyframes** (Every 3-5 seconds)
-   - Purpose: Maintain attention through variety
-   - Visual: Pattern breaks, style shifts
-   - Subtitle sync: New sentence or topic shift
+2. **Transition Keyframes (every 3–5s)**  
+   - Purpose: Maintain rhythm and variety  
+   - Visuals: Pattern breaks, zoom, style shifts  
+   - Sync: New sentence or topic  
 
-3. **Emphasis Keyframes** (Key narrative moments)
-   - Purpose: Highlight important information
-   - Visual: Zoom, flash, color shift
-   - Subtitle sync: Keywords, punchlines, reveals
+3. **Emphasis Keyframes (narrative peaks)**  
+   - Purpose: Highlight reveals or punchlines  
+   - Visuals: Flash, zoom, color bursts  
+   - Sync: Keywords, emotional spikes  
 
-4. **Completion Keyframe** (Final 2-3 seconds)
-   - Purpose: Encourage replay or next action
-   - Visual: Satisfying resolution or loop point
-   - Subtitle sync: Call-to-action or conclusion
+4. **Completion Keyframe (final 2–3s)**  
+   - Purpose: Resolution, replay, or CTA  
+   - Visuals: Loop point or call-to-action  
+   - Sync: Closing line or outro
 
 ---
 
@@ -85,7 +91,7 @@ Scene boundaries occur at:
 - Emotional tone changes (calm → exciting, serious → humorous)
 
 **Timing-Based Breaks:**
-- Every 3-5 seconds (optimal for maintaining attention)
+- Every 3–5 seconds (optimal for maintaining attention)
 - At pattern break intervals (aligns with visual rhythm)
 - Before/after key reveals or punchlines
 
@@ -127,16 +133,14 @@ def identify_scene_boundaries(subtitles):
 ### Step 3: Define Scene Duration
 
 **Optimal Scene Lengths:**
-- **YouTube Shorts**: 2-5 seconds per scene (12-30 scenes in 60s)
-- **TikTok**: 1-3 seconds per scene (5-10 scenes in 15s)
-- **Instagram Reels**: 2-4 seconds per scene (8-15 scenes in 30s)
+- **YouTube Shorts**: 2–5 seconds per scene (12–30 scenes in 60s)
+- **TikTok**: 1–3 seconds per scene (5–10 scenes in 15s)
+- **Instagram Reels**: 2–4 seconds per scene (8–15 scenes in 30s)
 
-**Scene Duration Formula:**
-```
-Min duration = 1.5 seconds (prevents jarring cuts)
-Max duration = 5 seconds (prevents attention decay)
-Optimal = 3 seconds (balances variety and comprehension)
-```
+**Scene Duration Guidelines:**
+- **Min:** 1.5s (avoid jarring cuts)  
+- **Max:** 5s (avoid attention decay)  
+- **Optimal:** 3s (balance of variety + readability)
 
 ---
 
@@ -146,19 +150,23 @@ Optimal = 3 seconds (balances variety and comprehension)
 
 For 30 fps video:
 - **Keyframe interval**: 1 frame (precise visual change)
-- **Transition duration**: 3-8 frames (0.1-0.27s for smooth blend)
-- **Hold time**: 60-150 frames (2-5 seconds per scene)
+- **Transition duration**: 3–8 frames (0.1–0.27s for smooth blend)
+- **Hold time**: 60–150 frames (2–5s per scene)
 
 ### Timing Alignment with Subtitles
 
-**Method 1: Sync to Subtitle Start**
+**Method 1: Subtitle Start Sync**  
+Keyframe appears at exact subtitle start time.
+
 ```python
 def generate_keyframe_at_subtitle_start(subtitle_start_time, fps=30):
     """Generate keyframe at exact subtitle start."""
     return int(subtitle_start_time * fps)
 ```
 
-**Method 2: Anticipatory Timing** (Recommended)
+**Method 2: Anticipatory Sync** (Recommended)  
+Keyframe appears 200ms *before* subtitle for natural feel.
+
 ```python
 def generate_anticipatory_keyframe(subtitle_start_time, fps=30, 
                                    anticipation_ms=200):
@@ -171,7 +179,8 @@ def generate_anticipatory_keyframe(subtitle_start_time, fps=30,
     return int(keyframe_time * fps)
 ```
 
-**Method 3: Pattern Break Sync** (Most Engaging)
+**Method 3: Pattern Break Sync** (Most Engaging)  
+Align keyframes with rhythmic visual breaks for maximum engagement.
 ```python
 def generate_pattern_break_keyframes(subtitles, fps=30, 
                                     minor_interval=40, 
@@ -202,32 +211,28 @@ def generate_pattern_break_keyframes(subtitles, fps=30,
 
 ### Keyframe Density Guidelines
 
-**High Density** (Energetic/Fast-paced content):
-- 1 keyframe every 1-2 seconds
-- Use for: Comedy, action, rapid-fire facts
-- Platform: TikTok, fast Reels
+**High Density (1–2s intervals)** — Energetic content  
+- Use for: Comedy, action, rapid-fire facts  
+- Platform: TikTok, fast Reels  
 
-**Medium Density** (Standard content):
-- 1 keyframe every 3-4 seconds
-- Use for: Stories, tutorials, explanations
-- Platform: YouTube Shorts, standard Reels
+**Medium Density (3–4s intervals)** — Balanced content  
+- Use for: Stories, tutorials, explanations  
+- Platform: YouTube Shorts, standard Reels  
 
-**Low Density** (Dramatic/Slow content):
-- 1 keyframe every 5-7 seconds
-- Use for: Emotional stories, suspense, art
+**Low Density (5–7s intervals)** — Slow-burn content  
+- Use for: Emotional stories, suspense, art  
 - Platform: Instagram Reels (aesthetic focus)
 
 ---
 
 ## Visual Design Principles for Keyframes
 
-### 1. Hook Keyframe (First Frame)
+### 1. Hook Keyframes
 
 **Visual Requirements:**
-- **Highest Contrast**: Use maximum difference (1:12+ ratio)
-- **Maximum Motion**: Start with biggest visual change
-- **Intrigue Element**: Mysterious, shocking, or curiosity-inducing
-- **Text Visibility**: First subtitle word should be immediately readable
+- **Maximum contrast + motion**: Start with highest impact  
+- **Intrigue element**: Mystery, shock, or curiosity hook  
+- **Large, readable text**: First subtitle immediately visible
 
 **Design Formula:**
 ```python
@@ -261,8 +266,8 @@ def create_hook_keyframe(base_frame):
 
 ### 2. Transition Keyframes
 
-**Visual Strategy:**
-Each transition should provide visual variety while maintaining coherence.
+**Visual Strategy:**  
+Provide variety while staying coherent. Use zooms, color shifts, motion speed changes, and pattern breaks for rhythm resets.
 
 **Transition Types:**
 
@@ -322,10 +327,10 @@ def apply_pattern_break_at_keyframe(frame, break_type, intensity):
 
 ### 3. Emphasis Keyframes
 
-**When to Use:**
-- Keywords in narration (e.g., numbers, shocking words)
-- Punchlines or reveals
-- Call-to-action moments
+**When to Use:**  
+Apply flash bursts, scale pops, or neon accents on:
+- Keywords, punchlines, reveals  
+- Call-to-action moments  
 - Emotional peaks
 
 **Visual Techniques:**
@@ -350,12 +355,16 @@ neon_boost = 1.5           # 50% brighter
 glow_radius = 2.0          # Larger glow
 ```
 
-### 4. Completion Keyframe
+### 4. Completion Keyframes
 
-**Purpose:**
-- Provide satisfying visual resolution
-- Encourage replay or next video
-- Create loop point if content repeats
+**Purpose:**  
+Provide satisfying closure, encourage replay, or prompt next action.
+
+**Options:**  
+- **Seamless loop** → match opening frame  
+- **CTA** → directive overlay  
+- **Cliffhanger** → freeze or suspense frame  
+- **Resolution** → warm, soft close
 
 **Design Strategy:**
 ```python
@@ -390,13 +399,13 @@ def create_completion_keyframe(context):
 
 ## Platform-Specific Optimization
 
-### YouTube Shorts (15-60 seconds)
+### YouTube Shorts (15–60 seconds)
 
 **Keyframe Strategy:**
-- **Density**: 1 keyframe every 3-4 seconds (15-20 total)
-- **Hook**: Strong opening question or statement (2-3s)
-- **Mid-content**: Clear scene breaks at major points
-- **Completion**: Call-to-action or loop point
+- **Density**: 1 keyframe every 3–4s (15–20 total)
+- **Hook**: Questions/statements  
+- **Mid-content**: Clear scene breaks  
+- **Completion**: CTA or loop point
 
 **Subtitle Integration:**
 ```python
@@ -412,18 +421,18 @@ youtube_shorts_keyframes = {
 ```
 
 **Visual Style:**
-- Educational + entertaining aesthetic
-- Clear text (many watch without sound)
-- Progress indicators helpful
-- Completion bonus optimization (aim for 90%+ retention)
+- Educational + entertaining aesthetic  
+- Clear subtitles (many muted viewers)  
+- Progress cues helpful  
+- Aim for 90%+ completion
 
-### TikTok (7-60 seconds, optimal 7-21s)
+### TikTok (7–60 seconds, optimal 7–21s)
 
 **Keyframe Strategy:**
-- **Density**: 1 keyframe every 1-2 seconds (7-10 in 15s)
-- **Hook**: Immediate impact (1s max)
-- **Rapid pacing**: Quick scene changes
-- **Loop**: Final frame should lead to replay
+- **Density**: 1 keyframe every 1–2s (7–10 in 15s)
+- **Hook**: Within 1s (critical)  
+- **Rapid pacing**: Quick scene changes  
+- **Loop**: Loop-friendly completion
 
 **Subtitle Integration:**
 ```python
@@ -438,18 +447,17 @@ tiktok_keyframes = {
 ```
 
 **Visual Style:**
-- Trend-driven aesthetics
-- High energy, fast motion
-- Bold text overlays
-- Seamless loop potential
-- Sound-on culture (but captions still help)
+- High energy, fast transitions  
+- Bold text overlays  
+- Seamless loop potential  
+- Sound-on culture (captions still help)
 
-### Instagram Reels (15-90 seconds, optimal 15-30s)
+### Instagram Reels (15–90 seconds, optimal 15–30s)
 
 **Keyframe Strategy:**
-- **Density**: 1 keyframe every 2-4 seconds (8-15 in 30s)
-- **Hook**: Aesthetic + intriguing (3s)
-- **Smooth transitions**: Polished, cohesive
+- **Density**: 1 keyframe every 2–4s (8–15 in 30s)
+- **Hook**: Aesthetic + intriguing  
+- **Smooth transitions**: Polished, cohesive  
 - **Brand-friendly**: Professional appearance
 
 **Subtitle Integration:**
@@ -465,15 +473,13 @@ instagram_reels_keyframes = {
 ```
 
 **Visual Style:**
-- High aesthetic value
-- Cohesive color palette
-- Elegant text styling
-- Brand consistency
-- Mixed sound usage (optimize for both sound-on and sound-off)
+- Cohesive color + branding  
+- Smooth, aesthetic transitions  
+- Works both sound-on and sound-off
 
 ---
 
-## Implementation Guide
+## Implementation Workflow
 
 ### Complete Workflow
 
@@ -755,10 +761,10 @@ def generate_video_with_subtitle_keyframes(subtitle_file: str,
 ### 1. Subtitle Quality
 
 **Essential Requirements:**
-- **Accurate timing**: Sync to audio peaks and pauses
-- **Readable duration**: Each subtitle visible for 2-3 seconds minimum
-- **Sentence structure**: Break at natural phrases, not mid-word
-- **Character limit**: 40-60 characters per subtitle for mobile readability
+- **Accurate timing**: Sync to audio peaks and pauses  
+- **Readable duration**: 2–3s on screen  
+- **Sentence structure**: Natural phrasing (40–60 characters)  
+- **Character limit**: 40–60 characters per subtitle for mobile readability
 
 **Common Mistakes:**
 - ❌ Too fast (< 1.5s per subtitle)
@@ -766,20 +772,23 @@ def generate_video_with_subtitle_keyframes(subtitle_file: str,
 - ❌ Breaking mid-sentence without reason
 - ❌ Inconsistent timing between subtitles
 
-### 2. Scene Transition Smoothness
+### 2. Scene Transitions
 
-**Smooth Transitions:**
+**Smooth Transitions:**  
+Crossfade for smooth flow (5–8 frames at 30fps).
+
 ```python
 transition_duration = 5-8 frames  # 0.17-0.27s at 30fps
 use_crossfade = True
 ease_function = 'ease_in_out'
 ```
 
-**Jarring Transitions (Use Intentionally):**
+**Hard Cuts (Use Intentionally):**  
+For shock reveals, comedy beats, fast action (1–2 frames).
+
 ```python
 transition_duration = 1-2 frames  # 0.03-0.07s
 use_cut = True  # Hard cut
-# Use for: Shock reveals, comedy beats, fast-paced action
 ```
 
 ### 3. Visual Consistency
@@ -795,27 +804,20 @@ use_cut = True  # Hard cut
 - Pattern break intensity
 - Neon accent colors (rotate through palette)
 
-### 4. Testing and Iteration
+### 4. Iteration & Testing
 
-**A/B Testing Recommendations:**
+**A/B Testing Recommendations:**  
+Test density, transition styles, and caption timing.
 
-Test different keyframe densities:
-- Variant A: 1 keyframe per 2 seconds (high density)
-- Variant B: 1 keyframe per 4 seconds (low density)
+- Density: 1 keyframe per 2s vs. 4s  
+- Transitions: Smooth crossfades vs. hard cuts  
+- Timing: Exact sync vs. 200ms anticipation  
 
-Test transition styles:
-- Variant A: Smooth crossfades
-- Variant B: Hard cuts
-
-Test caption timing:
-- Variant A: Exact sync with subtitle
-- Variant B: 200ms anticipation
-
-**Metrics to Track:**
-- Hook rate (first 3s retention)
-- Scene-by-scene drop-off
-- Completion rate
-- Rewatch rate
+**Track Metrics:**
+- Hook rate (first 3s retention)  
+- Scene-by-scene drop-off  
+- Completion rate  
+- Rewatch rate  
 - Average watch time
 
 ### 5. Platform-Specific Tips
@@ -904,60 +906,43 @@ Test caption timing:
 
 ## Troubleshooting
 
-### Issue: Keyframes Feel Disjointed
+### Issue: Disjointed Keyframes
 
-**Solution:**
-- Increase transition duration (8-10 frames)
-- Use crossfade blending
-- Maintain consistent motion direction
-- Align keyframes with pattern breaks
+**Solution:**  
+Lengthen transitions, add crossfade, align with rhythm.
 
-### Issue: Subtitles Not Readable
+### Issue: Unreadable Subtitles
 
-**Solution:**
-- Increase font size (60-80px for mobile)
-- Add stronger outline/shadow
-- Reduce background visual complexity
-- Position subtitles in upper third consistently
+**Solution:**  
+Increase font (60–80px), add outline/shadow, reduce background clutter.
 
-### Issue: Too Many/Too Few Keyframes
+### Issue: Too Many/Few Keyframes
 
-**Solution:**
-- Too many: Increase min_scene_duration to 2-3s
-- Too few: Decrease max_scene_duration to 4s
-- Use platform-specific density guidelines
+**Solution:**  
+Adjust min/max scene duration (2–4s range).
 
-### Issue: Hook Not Engaging
+### Issue: Weak Hook
 
-**Solution:**
-- Start with question or shocking statement
-- Maximum contrast on first frame
-- Immediate motion
-- Clear, large text
-- Anticipation or mystery element
+**Solution:**  
+Start with shocking statement, bold text, immediate motion.
 
 ---
 
 ## Conclusion
 
-Effective keyframe generation from subtitles requires:
+Effective keyframe generation requires:  
 
-1. **Strategic Segmentation**: Parse subtitles into meaningful scenes
-2. **Precise Timing**: Align keyframes with narrative beats
-3. **Visual Impact**: Apply engagement principles at each keyframe
-4. **Platform Optimization**: Adapt density and style for target platform
-5. **Testing**: Iterate based on retention metrics
+1. **Segmentation** → subtitles into meaningful scenes  
+2. **Timing** → precise alignment with narrative beats  
+3. **Visual Impact** → strong design principles for hooks and emphasis  
+4. **Platform Fit** → density and style adapted to Shorts, TikTok, Reels  
+5. **Testing** → iterate using retention metrics  
 
-By following this guide, you can create subtitle-driven visual narratives that maximize engagement, retention, and virality across YouTube Shorts, TikTok, and Instagram Reels.
+Following these practices leads to **engaging, subtitle-driven visual stories** optimized for short-form video virality.
 
 ---
 
 **Related Documentation:**
-- [RESEARCH.md](RESEARCH.md) - Visual principles and engagement research
-- [QUICKSTART.md](QUICKSTART.md) - Getting started with video generation
-- [README.md](README.md) - Project overview and architecture
-
-**Need Help?**
-- Open an issue on GitHub
-- Check example implementations in `examples/` directory
-- Review test cases in `tests/` directory
+- [RESEARCH.md](RESEARCH.md) — Visual engagement principles  
+- [QUICKSTART.md](../QUICKSTART.md) — Getting started guide  
+- [README.md](../README.md) — Project overview

@@ -70,6 +70,17 @@ See [KEYFRAME_GUIDE.md](docs/KEYFRAME_GUIDE.md) for a complete guide on generati
 - Implementation code examples and workflows
 - Best practices for maximizing engagement through scene-based visual structure
 
+### SDXL High-Quality Keyframe Generation
+See [SDXL_KEYFRAME_GUIDE.md](docs/SDXL_KEYFRAME_GUIDE.md) for comprehensive guidance on generating high-quality keyframes locally using SDXL:
+
+- **Model Stack**: SDXL Base + Refiner + Tiled VAE + Real-ESRGAN pipeline
+- **Optimal Settings**: Resolution, samplers, CFG scales, and refinement parameters
+- **Prompting Guidelines**: Structured prompt engineering for cinematic quality
+- **Python Pipeline**: Complete implementation with diffusers library
+- **Troubleshooting**: Solutions for common artifacts, noise, and quality issues
+- **Presets**: Optimized configurations for portraits and complex scenes
+- Local generation on RTX 5090 for artifact-free, professional-quality keyframes
+
 ## Installation
 
 ```bash
@@ -254,6 +265,7 @@ PrismQ.Research.Generator.Video/
 │   ├── RESEARCH_CS.md       # Czech translation of research
 │   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide
 │   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
+│   ├── SDXL_KEYFRAME_GUIDE.md     # SDXL high-quality keyframe generation
 │   ├── AUDIO_TO_VIDEO_GUIDE.md    # Audio-to-video generation guide
 │   ├── AUDIO_TO_VIDEO_GUIDE_CS.md # Czech audio-to-video guide
 │   └── REALISTIC_VIDEO_GUIDE.md   # Realistic video generation guide
