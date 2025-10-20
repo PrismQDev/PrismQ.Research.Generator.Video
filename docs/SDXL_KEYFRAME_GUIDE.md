@@ -10,7 +10,7 @@ Achieve **consistent, high-quality keyframes** locally (RTX 5090), free from art
 - **SDXL Refiner** → fine detail refinement at low denoise  
 - **Tiled VAE** → prevents seams, handles high-res decoding  
 - **IP-Adapter (optional)** → character consistency from reference images  
-- **Real-ESRGAN / ESRGAN 4x** → upscale to 2K–4K  
+- **Real-ESRGAN** → upscale 2×-4× (models: realesr-animevideov3, RealESRGAN_x4plus)  
 - **CodeFormer (optional)** → mild face enhancement  
 
 ---
@@ -132,10 +132,13 @@ image_hires.save(p_hires)
 
 # 4. Real-ESRGAN 2× upscale
 p_up = "out/keyframe_upscaled.png"
-subprocess.run([
-    REALESRGAN_BIN, "-i", p_hires, "-o", p_up,
-    "-n", REALESRGAN_MODEL, "-s", "2"
-], check=True)
+if os.path.exists(REALESRGAN_BIN) and os.access(REALESRGAN_BIN, os.X_OK):
+    subprocess.run([
+        REALESRGAN_BIN, "-i", p_hires, "-o", p_up,
+        "-n", REALESRGAN_MODEL, "-s", "2"
+    ], check=True)
+else:
+    print(f"Warning: Real-ESRGAN binary not found at {REALESRGAN_BIN}")
 ```
 
 ---
@@ -149,5 +152,5 @@ subprocess.run([
 ---
 
 ## Presets
-- **Portraits**: 40 steps base, Refiner 0.2 / 18 steps, Hi-Res ×1.5, ESRGAN 2×  
-- **Complex scenes**: 48 steps base, Refiner 0.22 / 20 steps, Hi-Res ×2, tiled VAE overlap ≥96, ESRGAN 2× then downscale to final resolution
+- **Portraits**: 40 steps base, Refiner 0.2 / 18 steps, Hi-Res ×1.5, Real-ESRGAN 2× (realesr-animevideov3)  
+- **Complex scenes**: 48 steps base, Refiner 0.22 / 20 steps, Hi-Res ×2, tiled VAE overlap ≥96, Real-ESRGAN 2×-4× then downscale to final resolution
