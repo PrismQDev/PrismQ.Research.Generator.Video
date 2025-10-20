@@ -14,14 +14,61 @@ This project implements a complete video generation pipeline based on research i
 - ✅ **Overlay System**: Story captions + progress bar
 - ✅ **Export**: 1080×1920 @ 30 fps optimized for vertical video
 
-## Research Foundation
+## Documentation
 
-See [RESEARCH.md](RESEARCH.md) for detailed documentation on the visual principles that maximize viewer engagement and watch time. Key findings include:
+### Research Foundation
+See [RESEARCH.md](docs/RESEARCH.md) for comprehensive documentation covering visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
 
 - 23-47% higher retention rates with continuous micro-movements
 - 31-43% increase in initial engagement with high-contrast edges
 - Optimal pattern break timing: every 1.2-2.5 seconds
 - 9:16 vertical format at 30 fps for platform optimization
+- 27 research questions across visual engagement, UX, virality, and platform-specific factors
+- Platform-specific optimization guidelines for YouTube Shorts, TikTok, and Instagram Reels
+
+**New Deep-Dive Sections:**
+- **Color Theory**: Color psychology, harmony systems, saturation strategies, grading techniques, platform-specific optimization
+- **Video Flow**: Pacing fundamentals, visual rhythm patterns, continuity techniques, scene transitions, information density
+- **Advanced Visual Principles**: Composition rules, depth/layering, lighting, texture, scale, negative space, Gestalt principles
+
+**Specialized Content Research:**
+- **Reddit Story Videos**: Comprehensive guide for "real-life" story content targeting young female audiences (10-25, US)
+  - Platform-specific strategies (TikTok, YouTube Shorts, Instagram Reels)
+  - Age-based content optimization and psychological triggers
+  - Multi-cultural insights from German, Japanese, Chinese, Indian, Czech, Polish, French markets
+  - Performance benchmarks and A/B testing frameworks
+
+**Czech Translation:** See [RESEARCH_CS.md](docs/RESEARCH_CS.md) for complete Czech translation of research documentation.
+
+### Audio Story to Video Generation Guide
+See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
+
+- **Audio Analysis**: Speech-to-text with emotion detection and timing analysis
+- **AI Prompt Generation**: Context-aware visual prompts synchronized with audio content
+- **Keyframe from Audio**: Automatic keyframe timing based on narration beats and emotion
+- **Movement Application**: All research-based movement rules applied to audio-generated visuals
+- **Platform-Specific Examples**: TikTok Reddit stories, YouTube educational, Instagram aesthetic
+- **Complete Pipeline**: Full AudioToVideoGenerator class with production-ready code
+- **Prompt Engineering**: Best practices, emotion-specific templates, comprehensive prompt library
+
+### Realistic Video Generation Guide
+See [REALISTIC_VIDEO_GUIDE.md](docs/REALISTIC_VIDEO_GUIDE.md) for comprehensive guidance on generating realistic videos that implement research principles:
+
+- **AI Script Integration**: Connect AI-generated scripts to visual timing and movement patterns
+- **Multiple Movement Types**: Constant micro-movement, parallax layers, pattern breaks, oscillating movements, directional transitions
+- **Platform-Specific Examples**: Complete implementations for TikTok, YouTube Shorts, and Instagram Reels
+- **Visual Styles**: Stock footage integration, AI-generated backgrounds, hybrid approaches
+- **Implementation Code**: Full Python examples for realistic video generation with multiple movement layers
+- **Production Recommendations**: Asset preparation, performance optimization, quality assurance, A/B testing
+
+### Keyframe Generation Guide
+See [KEYFRAME_GUIDE.md](docs/KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
+
+- Subtitle-to-scene segmentation strategies
+- Platform-specific keyframe timing (YouTube Shorts, TikTok, Instagram Reels)
+- Visual design principles for hook, transition, and completion keyframes
+- Implementation code examples and workflows
+- Best practices for maximizing engagement through scene-based visual structure
 
 ## Installation
 
@@ -202,7 +249,14 @@ black --check src/
 ```
 PrismQ.Research.Generator.Video/
 ├── README.md                 # This file
-├── RESEARCH.md              # Visual principles research
+├── docs/
+│   ├── RESEARCH.md          # Visual principles research
+│   ├── RESEARCH_CS.md       # Czech translation of research
+│   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide
+│   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
+│   ├── AUDIO_TO_VIDEO_GUIDE.md    # Audio-to-video generation guide
+│   ├── AUDIO_TO_VIDEO_GUIDE_CS.md # Czech audio-to-video guide
+│   └── REALISTIC_VIDEO_GUIDE.md   # Realistic video generation guide
 ├── requirements.txt         # Python dependencies
 ├── .gitignore              # Git ignore patterns
 ├── example.py              # Example usage script

@@ -8,13 +8,24 @@ Successfully implemented a complete video generation system that applies evidenc
 ### ✅ Completed Requirements
 
 #### 1. Research: Visual Principles That Boost Watch Time
-- **File**: `RESEARCH.md`
-- **Content**: Comprehensive documentation of visual engagement principles
+- **File**: `docs/RESEARCH.md`
+- **Content**: Comprehensive documentation covering visual engagement principles and virality research
 - **Key Findings**:
   - Constant motion increases retention by 23-47%
   - High-contrast edges boost initial engagement by 31-43%
   - Pattern breaks every 1.2-2.5s maintain attention
   - Optimal parameters for motion amplitude, color saturation, and timing
+- **Research Questions**: 27 comprehensive questions across:
+  - Visual Engagement (motion, color, quality)
+  - Overlays & UX (progress bars, subtitles)
+  - Keyframes & Story Impact (hooks, pacing)
+  - Virality Factors (algorithmic vs. social)
+  - Next Steps (measurement, testing, prediction)
+- **Deep-Dive Sections** (New):
+  - **Color Theory**: Psychology, harmony systems, saturation, grading, platform optimization
+  - **Video Flow**: Pacing, rhythm patterns, continuity, transitions, information density
+  - **Advanced Visual**: Composition, depth, lighting, texture, scale, negative space, Gestalt
+- **Platform Coverage**: YouTube Shorts, TikTok, Instagram Reels
 
 #### 2. Constant Motion: Nothing Static for >300ms
 - **File**: `src/motion.py`
@@ -136,7 +147,13 @@ Successfully implemented a complete video generation system that applies evidenc
 
 1. **Documentation**
    - README.md (comprehensive usage guide)
-   - RESEARCH.md (visual principles research)
+   - docs/RESEARCH.md (visual principles research)
+   - docs/RESEARCH_CS.md (Czech translation)
+   - docs/KEYFRAME_GUIDE.md (keyframe generation guide)
+   - docs/KEYFRAME_GUIDE_CS.md (Czech keyframe guide)
+   - docs/AUDIO_TO_VIDEO_GUIDE.md (audio-to-video generation guide)
+   - docs/AUDIO_TO_VIDEO_GUIDE_CS.md (Czech audio-to-video guide)
+   - docs/REALISTIC_VIDEO_GUIDE.md (realistic video generation guide)
    - SUMMARY.md (this file)
 
 2. **Source Code**
