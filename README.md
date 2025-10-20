@@ -73,6 +73,7 @@ See [KEYFRAME_GUIDE.md](docs/KEYFRAME_GUIDE.md) for a complete guide on generati
 ### Universal Keyframe Generation for 2-3 Minute Videos
 See [UNIVERSAL_KEYFRAME_GUIDE.md](docs/UNIVERSAL_KEYFRAME_GUIDE.md) for optimal keyframe generation strategy for longer-form content:
 
+- **Step-by-step workflow from SRT subtitles to keyframes**
 - Scene-based keyframe architecture for 2-3 minute videos
 - Two-keyframe approach: scene end + scene start transitions
 - Strategic transition effects for maximum retention
@@ -80,6 +81,16 @@ See [UNIVERSAL_KEYFRAME_GUIDE.md](docs/UNIVERSAL_KEYFRAME_GUIDE.md) for optimal 
 - Platform-universal specifications (YouTube, TikTok, Instagram, Facebook, etc.)
 - Complete implementation with code examples
 - Works across all major video platforms with H.264/MP4 standard
+
+**Quick Start with SRT Subtitles:**
+```bash
+python src/srt_to_keyframes.py your_video.srt output
+```
+
+This generates:
+- `output_structure.json` - Complete video structure
+- `output_markers.edl` - Timeline markers for editors
+- `output_enhanced.srt` - Subtitles with scene markers
 
 ### SDXL High-Quality Keyframe Generation
 See [SDXL_KEYFRAME_GUIDE.md](docs/SDXL_KEYFRAME_GUIDE.md) for comprehensive guidance on generating high-quality keyframes locally using SDXL:
@@ -284,6 +295,9 @@ PrismQ.Research.Generator.Video/
 ├── requirements.txt         # Python dependencies
 ├── .gitignore              # Git ignore patterns
 ├── example.py              # Example usage script
+├── example_universal_keyframes.py  # Universal keyframes examples
+├── example_srt_to_keyframes.py     # SRT to keyframes demo
+├── example_video.srt        # Sample SRT file for testing
 └── src/
     ├── __init__.py         # Package initialization
     ├── config.py           # Configuration dataclass
@@ -291,7 +305,9 @@ PrismQ.Research.Generator.Video/
     ├── motion.py           # Motion effects
     ├── visual_style.py     # Visual processing
     ├── overlay.py          # Captions and progress bar
-    └── pipeline.py         # Main orchestration
+    ├── pipeline.py         # Main orchestration
+    ├── universal_keyframes.py  # Universal keyframe generation
+    └── srt_to_keyframes.py     # SRT subtitle to keyframes workflow
 ```
 
 ## Contributing
