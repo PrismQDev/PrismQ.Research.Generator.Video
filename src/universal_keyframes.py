@@ -348,7 +348,8 @@ class TransitionRenderer:
     def apply_subtle_slide(frame_a: np.ndarray,
                           frame_b: np.ndarray,
                           progress: float,
-                          direction: str = 'up') -> np.ndarray:
+                          direction: str = 'up',
+                          max_distance_percent: float = 0.05) -> np.ndarray:
         """
         Apply subtle slide transition between two frames.
         
@@ -357,36 +358,49 @@ class TransitionRenderer:
             frame_b: Incoming frame
             progress: Transition progress (0.0 to 1.0)
             direction: 'up', 'down', 'left', or 'right'
+            max_distance_percent: Maximum slide distance as percentage of frame dimension (default 5%)
             
         Returns:
             Composite frame with subtle slide effect
         """
         height, width = frame_a.shape[:2]
-        result = np.zeros_like(frame_a)
         
-        # Calculate slide distance (50 pixels max)
-        max_distance = 50
+        # Calculate slide distance based on frame dimensions (5% of dimension by default)
+        if direction in ['up', 'down']:
+            max_distance = int(height * max_distance_percent)
+        else:
+            max_distance = int(width * max_distance_percent)
+        
         distance = int(max_distance * progress)
+        distance = max(0, min(distance, max_distance))  # Clamp to valid range
         
-        if direction == 'up':
-            # Slide up: frame_b enters from bottom
-            result[:height-distance, :] = frame_a[distance:, :]
-            result[height-distance:, :] = frame_b[:distance, :]
-        elif direction == 'down':
-            # Slide down: frame_b enters from top
-            result[distance:, :] = frame_a[:height-distance, :]
-            result[:distance, :] = frame_b[height-distance:, :]
-        elif direction == 'left':
-            # Slide left: frame_b enters from right
-            result[:, :width-distance] = frame_a[:, distance:]
-            result[:, width-distance:] = frame_b[:, :distance]
-        else:  # right
-            # Slide right: frame_b enters from left
-            result[:, distance:] = frame_a[:, :width-distance]
-            result[:, :distance] = frame_b[:, width-distance:]
+        # Start with a copy of frame_a
+        result = frame_a.copy()
         
-        # Apply crossfade for smooth blend
-        alpha = progress * 0.3  # Subtle blend
+        if distance > 0:
+            if direction == 'up':
+                # Slide up: frame_b enters from bottom
+                if distance < height:
+                    result[:height-distance, :] = frame_a[distance:, :]
+                    result[height-distance:, :] = frame_b[:distance, :]
+            elif direction == 'down':
+                # Slide down: frame_b enters from top
+                if distance < height:
+                    result[distance:, :] = frame_a[:height-distance, :]
+                    result[:distance, :] = frame_b[height-distance:, :]
+            elif direction == 'left':
+                # Slide left: frame_b enters from right
+                if distance < width:
+                    result[:, :width-distance] = frame_a[:, distance:]
+                    result[:, width-distance:] = frame_b[:, :distance]
+            else:  # right
+                # Slide right: frame_b enters from left
+                if distance < width:
+                    result[:, distance:] = frame_a[:, :width-distance]
+                    result[:, :distance] = frame_b[:, width-distance:]
+        
+        # Apply subtle crossfade for smooth blend
+        alpha = progress * 0.3  # Subtle blend (30% max)
         return TransitionRenderer.apply_crossfade(result, frame_b, alpha)
     
     @classmethod
