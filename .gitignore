@@ -40,6 +40,9 @@ output/
 *.jpeg
 temp/
 cache/
+example_output_*
+*.edl
+*.json
 
 # Models (large files)
 models/
