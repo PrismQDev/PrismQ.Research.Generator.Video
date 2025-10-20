@@ -232,6 +232,37 @@ class TestTransitionRenderer(unittest.TestCase):
         mid_point = 1080 // 2
         np.testing.assert_array_equal(result[:mid_point, :], self.frame_b[:mid_point, :])
         np.testing.assert_array_equal(result[mid_point:, :], self.frame_a[mid_point:, :])
+    
+    def test_apply_subtle_slide(self):
+        """Test subtle slide transition."""
+        result = TransitionRenderer.apply_subtle_slide(self.frame_a, self.frame_b, 0.5, 'up')
+        
+        # Should be a valid frame
+        self.assertEqual(result.shape, self.frame_a.shape)
+        self.assertEqual(result.dtype, np.uint8)
+    
+    def test_apply_transition_dispatcher(self):
+        """Test the apply_transition dispatcher method."""
+        # Test crossfade
+        result = TransitionRenderer.apply_transition(self.frame_a, self.frame_b, 'crossfade', 0.5)
+        expected = np.ones((1080, 1920, 3), dtype=np.uint8) * 150
+        np.testing.assert_array_equal(result, expected)
+        
+        # Test zoom_in
+        result = TransitionRenderer.apply_transition(self.frame_a, self.frame_b, 'zoom_in', 0.5)
+        self.assertEqual(result.shape, self.frame_a.shape)
+        
+        # Test zoom_out
+        result = TransitionRenderer.apply_transition(self.frame_a, self.frame_b, 'zoom_out', 0.5)
+        self.assertEqual(result.shape, self.frame_a.shape)
+        
+        # Test subtle_slide
+        result = TransitionRenderer.apply_transition(self.frame_a, self.frame_b, 'subtle_slide', 0.5, direction='up')
+        self.assertEqual(result.shape, self.frame_a.shape)
+        
+        # Test unknown type (should default to crossfade)
+        result = TransitionRenderer.apply_transition(self.frame_a, self.frame_b, 'unknown', 0.5)
+        np.testing.assert_array_equal(result, expected)
 
 
 class TestExampleGeneration(unittest.TestCase):

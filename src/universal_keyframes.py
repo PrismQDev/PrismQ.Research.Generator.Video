@@ -343,6 +343,105 @@ class TransitionRenderer:
                   frame_b.astype(np.float32) * alpha).astype(np.uint8)
         
         return blended
+    
+    @staticmethod
+    def apply_subtle_slide(frame_a: np.ndarray,
+                          frame_b: np.ndarray,
+                          progress: float,
+                          direction: str = 'up') -> np.ndarray:
+        """
+        Apply subtle slide transition between two frames.
+        
+        Args:
+            frame_a: Outgoing frame
+            frame_b: Incoming frame
+            progress: Transition progress (0.0 to 1.0)
+            direction: 'up', 'down', 'left', or 'right'
+            
+        Returns:
+            Composite frame with subtle slide effect
+        """
+        height, width = frame_a.shape[:2]
+        result = np.zeros_like(frame_a)
+        
+        # Calculate slide distance (50 pixels max)
+        max_distance = 50
+        distance = int(max_distance * progress)
+        
+        if direction == 'up':
+            # Slide up: frame_b enters from bottom
+            result[:height-distance, :] = frame_a[distance:, :]
+            result[height-distance:, :] = frame_b[:distance, :]
+        elif direction == 'down':
+            # Slide down: frame_b enters from top
+            result[distance:, :] = frame_a[:height-distance, :]
+            result[:distance, :] = frame_b[height-distance:, :]
+        elif direction == 'left':
+            # Slide left: frame_b enters from right
+            result[:, :width-distance] = frame_a[:, distance:]
+            result[:, width-distance:] = frame_b[:, :distance]
+        else:  # right
+            # Slide right: frame_b enters from left
+            result[:, distance:] = frame_a[:, :width-distance]
+            result[:, :distance] = frame_b[:, width-distance:]
+        
+        # Apply crossfade for smooth blend
+        alpha = progress * 0.3  # Subtle blend
+        return TransitionRenderer.apply_crossfade(result, frame_b, alpha)
+    
+    @classmethod
+    def apply_transition(cls, 
+                        frame_a: np.ndarray,
+                        frame_b: np.ndarray,
+                        transition_type: str,
+                        progress: float,
+                        **kwargs) -> np.ndarray:
+        """
+        Apply any transition type by name.
+        
+        Args:
+            frame_a: Outgoing frame
+            frame_b: Incoming frame
+            transition_type: Type of transition
+            progress: Transition progress (0.0 to 1.0)
+            **kwargs: Additional parameters for specific transitions
+            
+        Returns:
+            Processed frame
+        """
+        if transition_type == 'crossfade':
+            return cls.apply_crossfade(frame_a, frame_b, progress)
+        
+        elif transition_type == 'dip_to_black':
+            # Handle dip to black phases
+            fade_out = kwargs.get('fade_out', 0.3)
+            black_hold = kwargs.get('black_hold', 0.1)
+            fade_in = kwargs.get('fade_in', 0.3)
+            total = fade_out + black_hold + fade_in
+            
+            if progress < (fade_out / total):
+                phase_progress = progress / (fade_out / total)
+                return cls.apply_dip_to_black(frame_a, phase_progress, 'fade_out')
+            elif progress < ((fade_out + black_hold) / total):
+                return cls.apply_dip_to_black(frame_a, 1.0, 'black')
+            else:
+                phase_progress = (progress - (fade_out + black_hold) / total) / (fade_in / total)
+                return cls.apply_dip_to_black(frame_b, phase_progress, 'fade_in')
+        
+        elif transition_type == 'wipe':
+            direction = kwargs.get('direction', 'left_to_right')
+            return cls.apply_wipe(frame_a, frame_b, progress, direction)
+        
+        elif transition_type in ['zoom_in', 'zoom_out']:
+            return cls.apply_zoom_transition(frame_a, frame_b, progress, transition_type)
+        
+        elif transition_type == 'subtle_slide':
+            direction = kwargs.get('direction', 'up')
+            return cls.apply_subtle_slide(frame_a, frame_b, progress, direction)
+        
+        else:
+            # Default to crossfade
+            return cls.apply_crossfade(frame_a, frame_b, progress)
 
 
 def generate_example_video_structure(duration: float = 150, 
