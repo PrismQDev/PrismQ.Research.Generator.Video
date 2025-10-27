@@ -40,8 +40,20 @@ See [RESEARCH.md](docs/RESEARCH.md) for comprehensive documentation covering vis
 
 **Czech Translation:** See [RESEARCH_CS.md](docs/RESEARCH_CS.md) for complete Czech translation of research documentation.
 
-### LongCat-Video Research
-See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for comprehensive research on LongCat-Video, Meituan's open-source AI video generation model:
+### Video Generation Projects Research
+See [VIDEO_GENERATION_PROJECTS_COMPARISON.md](docs/VIDEO_GENERATION_PROJECTS_COMPARISON.md) for comprehensive research and comparison of similar AI video generation projects:
+
+- **Open-Source Models**: Open-Sora, HunyuanVideo, CogVideoX, LTX Video, AnimateDiff, Stable Video Diffusion
+- **Commercial Solutions**: RunwayML Gen-3/Gen-4, OpenAI Sora, Google Veo 3
+- **Detailed Comparisons**: Feature matrices, quality assessments, hardware requirements
+- **GitHub Repositories**: Direct links to 27.6K+ starred projects
+- **Integration Strategies**: How these models complement PrismQ's engagement-optimized pipeline
+- **Technical Specifications**: Parameter counts, resolution support, generation capabilities
+- **Use Case Recommendations**: Best models for different content types
+- **Future Trends**: Emerging developments in 2025 and beyond
+
+### LongCat-Video Research (Detailed)
+See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for in-depth research specifically on LongCat-Video:
 
 - **Overview**: 13.6B parameter model for long-form video generation (minutes-long videos)
 - **Technical Architecture**: Unified dense transformer, block sparse attention, multi-reward RLHF
@@ -57,6 +69,8 @@ See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for comprehensiv
 - **Use Cases**: Content creation, atmospheric B-roll, scene generation for narration
 - **Recommendations**: Short, medium, and long-term integration strategies for PrismQ
 - **Limitations & Considerations**: Content safety, hardware requirements, quality expectations
+- **Installation Guide**: Hardware requirements, setup instructions, and demo scripts
+- **Detailed Analysis**: Deep dive into Meituan's approach to long-form video generation
 
 ### Audio Story to Video Generation Guide
 See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
@@ -303,7 +317,8 @@ PrismQ.Research.Generator.Video/
 ├── docs/
 │   ├── RESEARCH.md          # Visual principles research
 │   ├── RESEARCH_CS.md       # Czech translation of research
-│   ├── LONGCAT_VIDEO_RESEARCH.md  # LongCat-Video AI model research
+│   ├── VIDEO_GENERATION_PROJECTS_COMPARISON.md  # Comprehensive comparison of similar AI video projects
+│   ├── LONGCAT_VIDEO_RESEARCH.md  # Detailed LongCat-Video analysis
 │   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide (short-form)
 │   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
 │   ├── UNIVERSAL_KEYFRAME_GUIDE.md  # Universal keyframe guide (2-3 min videos)
