@@ -14,8 +14,18 @@ This document provides comprehensive research on video generation projects simil
 
 1. [Overview of Video Generation Landscape](#overview-of-video-generation-landscape)
 2. [Open-Source Projects](#open-source-projects)
+   - [Open-Sora](#1-open-sora-hpcaitech)
+   - [HunyuanVideo](#2-hunyuanvideo-tencent)
+   - [CogVideoX](#3-cogvideox-tsinghua-university--zhipu-ai)
+   - [LTX Video](#4-ltx-video-lightricks)
+   - [AnimateDiff](#5-animatediff)
+   - [Stable Video Diffusion](#6-stable-video-diffusion-stability-ai)
+   - [LongCat-Video](#7-longcat-video-meituan)
 3. [Commercial Solutions](#commercial-solutions)
 4. [Detailed Comparisons](#detailed-comparisons)
+   - [Comparison Matrix: Open-Source Models](#comparison-matrix-open-source-models)
+   - [Comparison: Commercial vs Open-Source](#comparison-commercial-vs-open-source)
+   - [Multimodal Generation Capabilities Deep Dive](#multimodal-generation-capabilities-deep-dive)
 5. [Integration Possibilities with PrismQ](#integration-possibilities-with-prismq)
 6. [Recommendations](#recommendations)
    - [For PrismQ Integration](#for-prismq-integration)
@@ -340,6 +350,108 @@ Stable Video Diffusion extends the Stable Diffusion framework to video generatio
 
 ---
 
+### 7. LongCat-Video (Meituan)
+
+**Repository**: [github.com/meituan-longcat/LongCat-Video](https://github.com/meituan-longcat/LongCat-Video) (Note: Repository may not be public yet)  
+**License**: MIT License (expected)  
+**Status**: Recently announced (2025), availability TBD  
+**Model Size**: 13.6 billion parameters
+
+#### Overview
+LongCat-Video is Meituan's open-source AI video generation model specifically designed for long-form video generation. It represents a major contribution from a leading Chinese tech company to the open-source video generation ecosystem.
+
+**See Also**: [LONGCAT_VIDEO_RESEARCH.md](LONGCAT_VIDEO_RESEARCH.md) for comprehensive detailed analysis
+
+#### Key Features
+- **Long-Form Focus**: Designed specifically for minutes-long videos
+- **Unified Architecture**: Single transformer handles text-to-video, image-to-video, and video continuation
+- **Block Sparse Attention**: Efficient processing of high-resolution, long-duration content
+- **Multi-Reward RLHF**: Advanced reinforcement learning from human feedback
+- **FlashAttention-2**: Accelerated inference with optional FlashAttention-3
+- **Resolution**: 720p at 30fps for extended durations
+- **Temporal Consistency**: Advanced mechanisms to prevent color drift and maintain coherence
+
+#### Technical Specifications
+- **Architecture**: Unified Dense Transformer Framework
+- **Parameters**: 13.6 billion (largest among long-form focused models)
+- **Attention**: Block Sparse Attention with coarse-to-fine generation
+- **Training**: Multi-Reward RLHF (Group Relative Policy Optimization)
+- **Capabilities**: Text-to-video, image-to-video, video continuation
+- **Duration**: Optimized for minutes-long video generation
+- **Resolution**: 720p native, suitable for professional content
+
+#### Comparison with Similar Models
+
+**vs. HunyuanVideo (also 13B params):**
+- **Similarities**: Both 13B parameters, both focused on long-form
+- **LongCat Advantages**: 
+  - Unified architecture (single model for all tasks)
+  - Block Sparse Attention for efficiency
+  - Multi-Reward RLHF optimization
+- **HunyuanVideo Advantages**:
+  - More mature ecosystem (released earlier)
+  - Better community support and documentation
+  - More optimization variants available
+
+**vs. Open-Sora:**
+- **LongCat Advantages**: 
+  - Larger model (13.6B vs. variable)
+  - Purpose-built for long-form
+  - Advanced attention mechanisms
+- **Open-Sora Advantages**:
+  - Fully open training pipeline
+  - Larger community
+  - More established ecosystem
+  - Lower cost to customize ($200K training)
+
+**vs. LTX Video:**
+- **LongCat Advantages**:
+  - Better for continuous long-form (minutes)
+  - Larger parameter scale
+  - Unified multi-task architecture
+- **LTX Video Advantages**:
+  - Faster generation per clip
+  - Better for segmented approach
+  - More consumer GPU friendly
+  - 4K resolution support
+
+#### Strengths
+- ✅ Purpose-built for long-form video generation
+- ✅ Largest parameters among long-form focused models (13.6B)
+- ✅ Unified architecture handles multiple tasks
+- ✅ Advanced attention mechanisms for efficiency
+- ✅ Multi-Reward RLHF for quality
+- ✅ MIT License (open-source friendly)
+
+#### Limitations
+- ⚠️ Availability uncertain (may not be fully released yet)
+- ⚠️ Repository may not be publicly accessible
+- ⚠️ Limited community and ecosystem (new release)
+- ⚠️ High hardware requirements (13.6B parameters)
+- ⚠️ Documentation may be limited initially
+- ⚠️ Comparison benchmarks still emerging
+
+#### Best Use Cases
+- Long-form content creation (minutes-long videos)
+- Multi-modal video projects (text, image, video inputs)
+- Research into long-form video generation
+- Professional content requiring extended temporal consistency
+
+#### Installation and Availability
+
+**Note**: As of October 2025, LongCat-Video's public availability is uncertain. The model has been announced by Meituan, but the GitHub repository may not be accessible yet.
+
+**Expected Requirements** (when available):
+- **GPU**: NVIDIA A100, H100, or H800
+- **VRAM**: 40GB+ minimum
+- **Python**: 3.10+
+- **CUDA**: 11.8+ recommended
+- **Dependencies**: PyTorch 2.6.0+, FlashAttention-2
+
+**Recommendation**: Monitor the official repository for release updates. In the meantime, HunyuanVideo (11.2K⭐, publicly available) offers similar long-form capabilities with an established ecosystem.
+
+---
+
 ## Commercial Solutions
 
 ### 1. RunwayML Gen-3 & Gen-4
@@ -476,22 +588,24 @@ Google's latest video generation model integrated into the Gemini ecosystem, fea
 
 ### Comparison Matrix: Open-Source Models
 
-| Feature | Open-Sora | HunyuanVideo | CogVideoX | LTX Video | AnimateDiff | Stable Video Diffusion |
-|---------|-----------|--------------|-----------|-----------|-------------|------------------------|
-| **Parameters** | Varies | 13B | Up to 5B | 2B-13B | Motion module | Base SD model |
-| **Max Duration** | 15s+ | Minutes | 10s | 60s | 2-5s typical | Short clips |
-| **Max Resolution** | 720p | 720p | 720p | 4K | 512-1024 | 512-1024 |
-| **Text-to-Video** | ✅ Good | ✅ Good | ✅ Good | ✅ Great | ✅ Via SD | ✅ Via SD |
-| **Image-to-Video** | ✅ Good | ✅ Good | ✅ Best | ✅ Great | ✅ Good | ✅ Good |
-| **Video-to-Video** | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ Limited |
-| **Audio Sync** | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| **LoRA/Fine-tuning** | ✅ | ⚠️ Limited | ✅ Excellent | ⚠️ Developing | ✅ Excellent | ✅ Good |
-| **ComfyUI Support** | ⚠️ Community | ✅ Native | ✅ Good | ✅ Native | ✅ Excellent | ✅ Good |
-| **GPU Requirements** | High | High | Medium-High | Medium | Low-Medium | Low-Medium |
-| **Generation Speed** | Medium | Fast | Medium | **Fastest** | Fast | Medium |
-| **Documentation** | Good | Developing | Good | Excellent | Excellent | Good |
-| **Community Size** | Large | Growing | Medium | Growing | **Largest** | Large |
-| **Best For** | Research | Scale & Quality | I2V | Speed & Production | SD Integration | SD Ecosystem |
+| Feature | Open-Sora | HunyuanVideo | CogVideoX | LTX Video | AnimateDiff | Stable Video Diffusion | LongCat-Video |
+|---------|-----------|--------------|-----------|-----------|-------------|------------------------|---------------|
+| **Parameters** | Varies | 13B | Up to 5B | 2B-13B | Motion module | Base SD model | **13.6B** |
+| **Max Duration** | 15s+ | Minutes | 10s | 60s | 2-5s typical | Short clips | **Minutes** |
+| **Max Resolution** | 720p | 720p | 720p | 4K | 512-1024 | 512-1024 | **720p** |
+| **Text-to-Video** | ✅ Good | ✅ Good | ✅ Good | ✅ Great | ✅ Via SD | ✅ Via SD | ✅ Good |
+| **Image-to-Video** | ✅ Good | ✅ Good | ✅ Best | ✅ Great | ✅ Good | ✅ Good | ✅ Good |
+| **Video-to-Video** | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ Limited | ✅ Excellent |
+| **Video Continuation** | ⚠️ Limited | ✅ Good | ⚠️ Limited | ✅ Good | ❌ | ❌ | ✅ **Excellent** |
+| **Audio Sync** | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ⚠️ TBD |
+| **LoRA/Fine-tuning** | ✅ | ⚠️ Limited | ✅ Excellent | ⚠️ Developing | ✅ Excellent | ✅ Good | ⚠️ TBD |
+| **ComfyUI Support** | ⚠️ Community | ✅ Native | ✅ Good | ✅ Native | ✅ Excellent | ✅ Good | ⚠️ TBD |
+| **GPU Requirements** | High | High | Medium-High | Medium | Low-Medium | Low-Medium | **Very High** |
+| **Generation Speed** | Medium | Fast | Medium | **Fastest** | Fast | Medium | Medium |
+| **Documentation** | Good | Developing | Good | Excellent | Excellent | Good | Limited |
+| **Community Size** | Large | Growing | Medium | Growing | **Largest** | Large | New |
+| **Availability** | ✅ Public | ✅ Public | ✅ Public | ✅ Public | ✅ Public | ✅ Public | ⚠️ **TBD** |
+| **Best For** | Research | Scale & Quality | I2V | Speed & Production | SD Integration | SD Ecosystem | **Long-Form** |
 
 ### Comparison: Commercial vs Open-Source
 
@@ -505,6 +619,331 @@ Google's latest video generation model integrated into the Gemini ecosystem, fea
 | **Privacy** | Data sent to provider | Full data control |
 | **Integration** | SaaS/API | Full code access |
 | **Innovation** | Closed, controlled | Open experimentation |
+
+---
+
+### Multimodal Generation Capabilities Deep Dive
+
+Understanding the different input modalities is crucial for choosing the right model for your use case. Here's a comprehensive breakdown:
+
+#### 1. Text-to-Video (T2V)
+
+**What It Is**: Generate videos from text descriptions alone, with no visual input.
+
+**Best Models**:
+- **🥇 RunwayML Gen-4**: Industry-leading quality, best prompt adherence
+- **🥈 OpenAI Sora**: Exceptional realism, but limited access
+- **🥉 HunyuanVideo**: Best open-source option for long-form T2V
+
+**How It Works**:
+```python
+# Text-to-Video Example
+video = model.generate(
+    prompt="A cat walking through a neon-lit cyberpunk city at night, cinematic lighting",
+    duration=20,
+    resolution=(1080, 1920),
+    fps=30
+)
+```
+
+**Strengths**:
+- ✅ Most flexible (no visual assets needed)
+- ✅ Great for abstract/conceptual content
+- ✅ Unlimited creative possibilities
+
+**Limitations**:
+- ⚠️ Can be unpredictable
+- ⚠️ Requires skilled prompt engineering
+- ⚠️ May not match specific visual requirements
+
+**Best Use Cases**:
+- Abstract background videos
+- Concept visualization
+- Creative content without specific visual requirements
+- Rapid prototyping
+
+**Model Comparison for T2V**:
+| Model | Quality | Prompt Adherence | Duration | Cost |
+|-------|---------|------------------|----------|------|
+| RunwayML Gen-4 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Up to minutes | $$$ |
+| Sora | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Up to minutes | $$$$ |
+| HunyuanVideo | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Minutes | Free (local) |
+| LTX Video | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 60s | Free (local) |
+| Open-Sora | ⭐⭐⭐ | ⭐⭐⭐ | 15s+ | Free (local) |
+| AnimateDiff | ⭐⭐⭐ | ⭐⭐⭐ | 5-20s | Free (local) |
+
+---
+
+#### 2. Image-to-Video (I2V)
+
+**What It Is**: Animate a single static image into a video with motion.
+
+**Best Models**:
+- **🥇 CogVideoX**: Best open-source I2V quality
+- **🥈 LTX Video**: Great quality with fast generation
+- **🥉 Stable Video Diffusion**: Good for stylized content
+
+**How It Works**:
+```python
+# Image-to-Video Example
+video = model.image_to_video(
+    image="path/to/keyframe.png",  # Starting image
+    prompt="The character walks forward, camera pans right",
+    motion_strength=0.7,  # How much motion to add
+    duration=10,
+    resolution=(1080, 1920),
+    fps=30
+)
+```
+
+**Strengths**:
+- ✅ Precise visual control (exact starting point)
+- ✅ Great for animating illustrations/artwork
+- ✅ Consistent with source material
+- ✅ Good for storyboard-to-video
+
+**Limitations**:
+- ⚠️ Limited by starting image
+- ⚠️ Motion can be subtle or unpredictable
+- ⚠️ May not deviate much from source
+
+**Best Use Cases**:
+- Animating product photos
+- Bringing illustrations to life
+- Storyboard animation
+- Photo slideshow with motion
+- Keyframe-based video production
+
+**Model Comparison for I2V**:
+| Model | Quality | Motion Control | Speed | Hardware |
+|-------|---------|----------------|-------|----------|
+| CogVideoX | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | RTX 3060+ |
+| LTX Video | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | RTX 4090 |
+| RunwayML Gen-3 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Cloud |
+| Stable Video Diffusion | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | RTX 3060+ |
+| AnimateDiff | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | RTX 2060+ |
+
+---
+
+#### 3. Text + Image to Video (Combined Input)
+
+**What It Is**: Combine a starting image with text instructions to guide the animation.
+
+**Best Models**:
+- **🥇 RunwayML Gen-4**: Best combined control
+- **🥈 LTX Video**: Excellent local option
+- **🥉 CogVideoX**: Good open-source alternative
+
+**How It Works**:
+```python
+# Text + Image to Video Example
+video = model.generate(
+    image="path/to/starting_frame.png",
+    prompt="Camera slowly zooms in while the subject looks to the right, dramatic lighting",
+    duration=15,
+    resolution=(1080, 1920),
+    fps=30,
+    motion_strength=0.8,  # Balance between image and text
+    guidance_scale=7.5  # How much to follow the prompt
+)
+```
+
+**Strengths**:
+- ✅ Best of both worlds (control + flexibility)
+- ✅ Precise starting point with creative direction
+- ✅ Better motion control than I2V alone
+- ✅ Can specify camera movements and actions
+
+**Limitations**:
+- ⚠️ Requires both good image and good prompt
+- ⚠️ Balancing image influence vs. text can be tricky
+- ⚠️ More parameters to optimize
+
+**Best Use Cases**:
+- Product demonstrations with specific camera moves
+- Character animation with action instructions
+- Architectural visualizations with movement
+- Brand content requiring specific look + motion
+
+**Workflow Example**:
+```python
+# Professional workflow for branded content
+keyframe = generate_keyframe_with_sdxl(
+    prompt="Professional product shot, studio lighting, 4k",
+    resolution=(1080, 1920)
+)
+
+video = ltx_video.generate(
+    image=keyframe,
+    prompt="Camera orbits around product, highlights reflect, elegant motion",
+    duration=20,
+    fps=30,
+    seed=42  # Reproducible results
+)
+
+# Apply PrismQ engagement optimizations
+final = prismq_pipeline.optimize(video)
+```
+
+---
+
+#### 4. Image Sequence to Video (Keyframe Interpolation)
+
+**What It Is**: Generate smooth video from a sequence of keyframe images by interpolating between them.
+
+**Best Models**:
+- **🥇 LTX Video**: Native support for multi-keyframe
+- **🥈 Open-Sora**: Video extension capabilities
+- **🥉 CogVideoX**: Can chain multiple I2V generations
+
+**How It Works**:
+```python
+# Image Sequence to Video Example
+keyframes = [
+    "scene1_start.png",  # Frame 0
+    "scene1_middle.png",  # Frame 300
+    "scene1_end.png"  # Frame 600
+]
+
+video = model.interpolate_keyframes(
+    keyframes=keyframes,
+    frame_positions=[0, 300, 600],  # Where each keyframe appears
+    total_frames=600,  # 20 seconds at 30 FPS
+    interpolation_mode="smooth",  # or "linear", "cubic"
+    motion_consistency=0.9  # High consistency between keyframes
+)
+```
+
+**Strengths**:
+- ✅ Maximum control over visual progression
+- ✅ Great for storyboarded content
+- ✅ Predictable results
+- ✅ Can plan entire video visually first
+
+**Limitations**:
+- ⚠️ Requires creating multiple keyframes
+- ⚠️ More prep work upfront
+- ⚠️ Interpolation quality varies by model
+- ⚠️ Can have visible transitions
+
+**Best Use Cases**:
+- Professional storyboard-to-video
+- Animating comic panels
+- Educational content with specific visual steps
+- Brand content requiring precise visual control
+
+**Advanced Workflow**:
+```python
+# Multi-scene video from keyframes (3-minute video, 9 scenes)
+scenes = []
+for scene_idx in range(9):
+    # Generate 3 keyframes per scene (start, middle, end)
+    keyframes = [
+        generate_keyframe(f"scene_{scene_idx}_start"),
+        generate_keyframe(f"scene_{scene_idx}_middle"),
+        generate_keyframe(f"scene_{scene_idx}_end")
+    ]
+    
+    # Interpolate 20-second scene from keyframes
+    scene = ltx_video.interpolate_keyframes(
+        keyframes=keyframes,
+        frame_positions=[0, 300, 600],  # 0s, 10s, 20s
+        total_frames=600,  # 20 seconds at 30 FPS
+        fps=30
+    )
+    scenes.append(scene)
+
+# Stitch all scenes together
+final_video = stitch_scenes(scenes, transition_duration=0.5)
+```
+
+---
+
+#### 5. Video-to-Video (V2V) / Video Continuation
+
+**What It Is**: Extend existing video clips or transform video style.
+
+**Best Models**:
+- **🥇 LongCat-Video**: Purpose-built for video continuation
+- **🥈 HunyuanVideo**: Good at extending videos
+- **🥉 LTX Video**: Video extension capabilities
+
+**How It Works**:
+```python
+# Video Continuation Example
+extended_video = model.continue_video(
+    input_video="existing_clip.mp4",
+    continuation_duration=10,  # Add 10 more seconds
+    prompt="Continue the motion smoothly, maintain style",
+    consistency_strength=0.95  # Very high consistency
+)
+
+# Video Style Transfer Example
+stylized_video = model.video_to_video(
+    input_video="original.mp4",
+    prompt="Transform to anime style, vibrant colors",
+    strength=0.7  # How much to transform (0=original, 1=complete change)
+)
+```
+
+**Strengths**:
+- ✅ Extend existing content
+- ✅ Style transfer/transformation
+- ✅ Maintain temporal consistency
+- ✅ Good for editing existing footage
+
+**Limitations**:
+- ⚠️ Requires source video
+- ⚠️ Quality depends on input quality
+- ⚠️ Can be computationally expensive
+- ⚠️ Style transfer may not be consistent
+
+**Best Use Cases**:
+- Extending short clips to desired length
+- Style transfer on existing footage
+- Enhancing low-quality videos
+- Creating variations of existing content
+
+---
+
+### Choosing the Right Modality for Your Project
+
+**Decision Tree**:
+
+```
+Do you have visual assets?
+├─ No → Use Text-to-Video (T2V)
+│  └─ Best: HunyuanVideo, LTX Video, AnimateDiff (local)
+│  └─ Premium: RunwayML Gen-4, Sora (cloud)
+│
+└─ Yes → What type?
+   ├─ Single image → Image-to-Video (I2V)
+   │  └─ Best: CogVideoX, LTX Video (local)
+   │  └─ Premium: RunwayML Gen-3 (cloud)
+   │
+   ├─ Multiple images → Image Sequence to Video
+   │  └─ Best: LTX Video (keyframe support)
+   │  └─ Alternative: Chain CogVideoX I2V
+   │
+   ├─ Existing video → Video-to-Video (V2V)
+   │  └─ Best: LongCat-Video (continuation)
+   │  └─ Alternative: HunyuanVideo, LTX Video
+   │
+   └─ Image + Want control → Text + Image to Video
+      └─ Best: RunwayML Gen-4 (cloud)
+      └─ Local: LTX Video, CogVideoX
+```
+
+**For PrismQ Use Cases**:
+
+| Content Type | Best Modality | Recommended Model |
+|--------------|---------------|-------------------|
+| **Reddit Stories (abstract bg)** | Text-to-Video | AnimateDiff (fast, local) |
+| **Product Demos** | Text + Image | LTX Video (quality + speed) |
+| **Illustrated Content** | Image-to-Video | CogVideoX (best I2V) |
+| **Storyboarded Videos** | Image Sequence | LTX Video (keyframe support) |
+| **Tutorial/Educational** | Text + Image | LTX Video or HunyuanVideo |
+| **Brand Content** | Image Sequence | LTX Video → PrismQ optimize |
 
 ---
 
