@@ -13,6 +13,21 @@ LongCat-Video is an open-source AI video generation model developed by Meituan's
 
 LongCat-Video's primary innovation is its ability to generate **minutes-long videos** from various inputs (text, images, or video clips), addressing one of the most challenging problems in open-source video generation: maintaining temporal consistency, coherence, and visual quality over extended durations.
 
+### Quick Specification Summary
+
+| Feature | Details |
+|---------|---------|
+| **Parameter Count** | ~13.6 billion |
+| **Supported Tasks** | Text-to-Video, Image-to-Video, Video Continuation, Long-Video Generation |
+| **Resolution** | 720p @ 30fps (can generate for minutes) |
+| **License** | MIT License (code and weights) |
+| **Release Date** | 2025 (approx.) |
+| **Hardware Requirements** | NVIDIA GPU with 24GB+ VRAM (A100, H100, RTX 5090, etc.) |
+| **Software Requirements** | Python 3.10, PyTorch 2.6.0+, CUDA 11.8+, FlashAttention-2 |
+| **Key Strength** | Long-form video generation with temporal consistency |
+| **Primary Use Cases** | Content creation, educational videos, social media, research |
+| **Repository** | [github.com/meituan-longcat/LongCat-Video](https://github.com/meituan-longcat/LongCat-Video) |
+
 ---
 
 ## Technical Architecture
@@ -203,7 +218,7 @@ This unified approach allows parameter sharing across tasks, improving efficienc
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/meituan-longcat/LongCat-Video
+git clone --single-branch --branch main https://github.com/meituan-longcat/LongCat-Video
 cd LongCat-Video
 
 # 2. Create conda environment
@@ -221,11 +236,36 @@ pip install flash_attn==2.7.4.post1
 # 5. Install other dependencies
 pip install -r requirements.txt
 
-# 6. Verify installation
+# 6. Download model weights from HuggingFace
+pip install "huggingface_hub[cli]"
+huggingface-cli download meituan-longcat/LongCat-Video --local-dir ./weights/LongCat-Video
+
+# 7. Verify installation
 nvidia-smi  # Check CUDA version and GPU availability
 ```
 
 ### Running Demos
+
+**Single-GPU Execution:**
+
+```bash
+# Text-to-Video generation with compile optimization
+torchrun run_demo_text_to_video.py --checkpoint_dir=./weights/LongCat-Video --enable_compile
+
+# Image-to-Video generation with compile optimization
+torchrun run_demo_image_to_video.py --checkpoint_dir=./weights/LongCat-Video --enable_compile
+
+# Long video generation with compile optimization
+torchrun run_demo_long_video.py --checkpoint_dir=./weights/LongCat-Video --enable_compile
+
+# Video continuation
+torchrun run_demo_video_continuation.py --checkpoint_dir=./weights/LongCat-Video --enable_compile
+
+# Web interface (Streamlit)
+python run_streamlit.py
+```
+
+**Alternative (without torchrun):**
 
 ```bash
 # Text-to-Video generation
@@ -236,10 +276,42 @@ python run_demo_image_to_video.py
 
 # Long video generation
 python run_demo_long_video.py
-
-# Web interface (Streamlit)
-python run_streamlit.py
 ```
+
+### Optimization for High-End GPUs (RTX 5090 and Similar)
+
+For users with high-end consumer GPUs like the RTX 5090, here are optimization tips to maximize performance:
+
+**Memory Optimization:**
+- **Use FP16 or Mixed Precision**: Reduces VRAM usage significantly while maintaining quality
+  ```bash
+  # Add --fp16 flag to demo scripts (if supported)
+  torchrun run_demo_text_to_video.py --checkpoint_dir=./weights/LongCat-Video --enable_compile --fp16
+  ```
+- **Adjust Batch Size**: Start with batch size 1, increase if VRAM allows
+- **Frame Count Control**: Begin with 128 frames at 720p, scale up based on available memory
+
+**Performance Optimization:**
+- **Enable Compile Flag**: Always use `--enable_compile` for optimized kernels (as shown in examples above)
+- **FlashAttention-2**: Ensure FlashAttention-2 is properly installed for maximum speed
+- **CUDA Streams**: Leverage CUDA 12.4+ features for better parallelization
+
+**Resolution and Quality:**
+- **720p Recommended**: Start with 720p (1280×720) for optimal speed/quality balance
+- **Vertical Video**: For 9:16 vertical format (1080×1920), monitor VRAM usage carefully
+- **Upscaling Strategy**: Generate at 720p, then upscale using separate tools if needed
+
+**Common VRAM Guidelines (RTX 5090 with 32GB VRAM):**
+- 720p × 128 frames: ~12-16GB VRAM
+- 720p × 256 frames: ~20-24GB VRAM
+- 1080×1920 × 128 frames: ~18-22GB VRAM
+- 1080×1920 × 256 frames: May exceed VRAM, use tiling/chunking
+
+**Troubleshooting VRAM Issues:**
+- Reduce spatial resolution (e.g., 640×360 or 720×1280)
+- Decrease frame count per generation
+- Explore latent upscaling techniques
+- Use gradient checkpointing (if available)
 
 ---
 
@@ -346,7 +418,97 @@ optimized_video = pipeline.apply_engagement_optimization(
 4. Render PrismQ's overlay system
 5. Export with platform-specific optimizations
 
-### 4. Advantages of Integration
+### 4. Content-Specific Workflow: Horror/True-Crime Vertical Shorts
+
+**Target Audience**: U.S. girls/women ages 10-30  
+**Platform**: TikTok, Instagram Reels, YouTube Shorts  
+**Format**: 9:16 vertical (1080×1920)
+
+**Workflow Integration:**
+
+```
+Script/Voiceover → LongCat-Video (Text-to-Video) → PrismQ Optimization → Platform Upload
+```
+
+**Content Creation Examples:**
+
+1. **Text-to-Video for Scene Generation:**
+   ```bash
+   # Generate 5-10 second horror scene
+   Prompt: "A slow pan shot of an abandoned hallway with flickering lights, 
+   tension builds, dark atmosphere, cinematic horror style"
+   
+   Duration: 5-10 seconds
+   Resolution: 720p (upscale to 1080×1920 for vertical)
+   ```
+
+2. **Image-to-Video for Key Moments:**
+   ```bash
+   # Animate concept art or keyframe
+   Input: Concept art of a creepy setting
+   Prompt: "Add subtle camera movement, flickering shadows, eerie atmosphere"
+   
+   Duration: 5-8 seconds
+   Output: Animated establishing shot
+   ```
+
+3. **Video Continuation for Suspense:**
+   ```bash
+   # Extend existing clip for suspense build
+   Input: 3-second establishing shot
+   Continuation: "Continue the slow pan, shadows creep in, tension increases"
+   
+   Total Duration: 20-30 seconds
+   Use Case: Build suspense over narrator's story
+   ```
+
+**Narrative Integration with Voiceover:**
+
+| Narration Moment | LongCat-Video Usage | PrismQ Enhancement |
+|------------------|---------------------|-------------------|
+| "I turned the corner..." | Generate corner turn scene | Add micro-movement, neon edge glow |
+| "...and froze" | Freeze frame with subtle movement | Pattern break (zoom pop), high contrast |
+| "The door slowly opened" | Generate door opening motion | Slow zoom, eerie color grading |
+| "I heard footsteps" | Generate atmospheric hallway | Parallax drift, tension-building motion |
+
+**Vertical Format Considerations:**
+
+- **Aspect Ratio Support**: Check LongCat-Video's native support for 9:16 aspect ratio
+  - If not natively supported, generate 16:9 and crop/reframe for vertical
+  - Alternative: Generate at 1:1 (square) and extend vertically
+  
+- **Vertical Composition Tips**:
+  - Use vertical camera movements (up/down pans)
+  - Frame subjects for mobile viewing (larger, centered)
+  - Utilize full vertical space for atmospheric elements (ceiling to floor)
+
+- **Post-Processing for Vertical**:
+  ```python
+  # Example crop/reframe workflow
+  # 1. Generate at 720×1280 (9:16) or 1280×720 (crop later)
+  # 2. Apply PrismQ motion and style
+  # 3. Add subtitles optimized for vertical (top or bottom third)
+  # 4. Export at 1080×1920 for platform upload
+  ```
+
+**Horror-Specific Visual Style:**
+
+- **Dark Atmosphere**: Leverage LongCat-Video's realistic rendering + PrismQ's high contrast
+- **Tension Building**: Use video continuation for slow-building scenes (20-30s suspense)
+- **Pattern Breaks**: Sync jump scares with PrismQ's major pattern breaks (~2.7s intervals)
+- **Color Palette**: Dark blues, blacks, occasional neon accents for supernatural elements
+
+**Example Prompts for Horror Content:**
+
+1. "A dimly lit bedroom at night, camera slowly pushes forward toward a slightly open closet door, shadows shifting, eerie atmosphere, cinematic horror"
+
+2. "Abandoned asylum hallway, peeling paint, flickering fluorescent lights casting long shadows, slow dolly shot, atmospheric tension, found footage style"
+
+3. "A figure standing motionless in the corner of a dark room, barely visible in shadows, slight camera shake, horror atmosphere, suspenseful"
+
+4. "Forest at dusk, fog rolling through trees, slow pan revealing something watching from the darkness, mystery horror atmosphere, cinematic"
+
+### 5. Advantages of Integration
 
 **Content Quality**:
 - High-quality AI-generated base content
@@ -458,6 +620,18 @@ optimized_video = pipeline.apply_engagement_optimization(
 - Occasional temporal inconsistencies
 - Requires quality control and review
 
+**Aspect Ratio and Vertical Video**:
+- Many models default to horizontal (16:9) or square (1:1) aspect ratios
+- Vertical orientation (9:16) support may be limited or require workarounds
+- Check model's native aspect ratio support before generating vertical content
+- May need to crop, reframe, or generate at alternative resolutions for vertical format
+- For vertical shorts: generate at 720×1280 or similar, then upscale/crop as needed
+
+**Temporal Artifacts**:
+- Flickering may occur depending on prompt and settings
+- Requires tuning of prompt, steps, and temporal parameters
+- Quality may vary with different scene types and motion complexity
+
 ### 3. Integration Challenges
 
 **API Availability**:
@@ -486,6 +660,13 @@ optimized_video = pipeline.apply_engagement_optimization(
 - Generated content ownership (review terms)
 - Commercial usage compliance
 - Attribution to model creators
+- License does not grant rights to use Meituan trademarks or patents
+
+**Safety and Responsible Usage**:
+- Model was not designed for every downstream task
+- Users should assess fairness, accuracy, and legal compliance
+- Evaluate content for appropriateness and platform guidelines
+- Consider ethical implications of AI-generated content
 
 ---
 

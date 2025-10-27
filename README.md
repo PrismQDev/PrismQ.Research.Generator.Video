@@ -51,6 +51,11 @@ See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for comprehensiv
 - **Installation Guide**: Hardware requirements, setup instructions, and demo scripts
 - **Use Cases**: Content creation, educational content, research applications
 - **Recommendations**: Short, medium, and long-term integration strategies for PrismQ
+- **Horror/True-Crime Workflow**: Specific workflow for vertical shorts targeting U.S. girls/women 10-30
+
+**Additional Resources:**
+- [LongCat-Video Installation Guide](docs/LONGCAT_VIDEO_INSTALLATION_GUIDE.md): Step-by-step installation for Windows + RTX 5090
+- [LongCat-Video Prompt Templates](docs/LONGCAT_VIDEO_PROMPT_TEMPLATES.md): Horror/true-crime prompt templates optimized for vertical video
 
 ### Audio Story to Video Generation Guide
 See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
@@ -298,6 +303,8 @@ PrismQ.Research.Generator.Video/
 │   ├── RESEARCH.md          # Visual principles research
 │   ├── RESEARCH_CS.md       # Czech translation of research
 │   ├── LONGCAT_VIDEO_RESEARCH.md  # LongCat-Video AI model research
+│   ├── LONGCAT_VIDEO_INSTALLATION_GUIDE.md  # LongCat-Video setup for Windows/RTX 5090
+│   ├── LONGCAT_VIDEO_PROMPT_TEMPLATES.md    # Horror/true-crime prompt templates
 │   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide (short-form)
 │   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
 │   ├── UNIVERSAL_KEYFRAME_GUIDE.md  # Universal keyframe guide (2-3 min videos)
