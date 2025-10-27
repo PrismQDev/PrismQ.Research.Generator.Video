@@ -40,17 +40,37 @@ See [RESEARCH.md](docs/RESEARCH.md) for comprehensive documentation covering vis
 
 **Czech Translation:** See [RESEARCH_CS.md](docs/RESEARCH_CS.md) for complete Czech translation of research documentation.
 
-### LongCat-Video Research
-See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for comprehensive research on LongCat-Video, Meituan's open-source AI video generation model:
+### Video Generation Projects Research
+See [VIDEO_GENERATION_PROJECTS_COMPARISON.md](docs/VIDEO_GENERATION_PROJECTS_COMPARISON.md) for comprehensive research and comparison of similar AI video generation projects:
+
+- **Open-Source Models**: Open-Sora, HunyuanVideo, CogVideoX, LTX Video, AnimateDiff, Stable Video Diffusion
+- **Commercial Solutions**: RunwayML Gen-3/Gen-4, OpenAI Sora, Google Veo 3
+- **Detailed Comparisons**: Feature matrices, quality assessments, hardware requirements
+- **GitHub Repositories**: Direct links to 27.6K+ starred projects
+- **Integration Strategies**: How these models complement PrismQ's engagement-optimized pipeline
+- **Technical Specifications**: Parameter counts, resolution support, generation capabilities
+- **Use Case Recommendations**: Best models for different content types
+- **Future Trends**: Emerging developments in 2025 and beyond
+
+### LongCat-Video Research (Detailed)
+See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for in-depth research specifically on LongCat-Video:
 
 - **Overview**: 13.6B parameter model for long-form video generation (minutes-long videos)
 - **Technical Architecture**: Unified dense transformer, block sparse attention, multi-reward RLHF
 - **Key Capabilities**: Text-to-video, image-to-video, video continuation
+- **RTX 5090 Setup Guide**: Optimized installation and configuration for high-end GPU deployment
+- **Horror/True-Crime Workflow**: Specialized integration for atmospheric content targeting US girls 10-30
+- **Prompt Templates**: 50+ ready-to-use prompts for suspense, mystery, and atmospheric scenes
+- **Vertical Video Optimization**: 9:16 aspect ratio setup for TikTok, Reels, and Shorts
+- **Practical Code Examples**: Complete integration examples with PrismQ pipeline
 - **Comparison Analysis**: Detailed comparison with Sora, CogVideoX, and AnimateDiff
-- **Integration Possibilities**: How LongCat-Video could complement PrismQ's engagement-optimized pipeline
-- **Installation Guide**: Hardware requirements, setup instructions, and demo scripts
-- **Use Cases**: Content creation, educational content, research applications
+- **Integration Possibilities**: How LongCat-Video complements PrismQ's engagement-optimized pipeline
+- **Installation Guide**: Step-by-step setup with model weight downloads
+- **Use Cases**: Content creation, atmospheric B-roll, scene generation for narration
 - **Recommendations**: Short, medium, and long-term integration strategies for PrismQ
+- **Limitations & Considerations**: Content safety, hardware requirements, quality expectations
+- **Installation Guide**: Hardware requirements, setup instructions, and demo scripts
+- **Detailed Analysis**: Deep dive into Meituan's approach to long-form video generation
 
 ### HunyuanVideo Research
 See [HUNYUANVIDEO_RESEARCH.md](docs/HUNYUANVIDEO_RESEARCH.md) for comprehensive research on HunyuanVideo, Tencent's open-source video foundation model:
@@ -312,6 +332,8 @@ PrismQ.Research.Generator.Video/
 │   ├── RESEARCH_CS.md       # Czech translation of research
 │   ├── LONGCAT_VIDEO_RESEARCH.md   # LongCat-Video AI model research
 │   ├── HUNYUANVIDEO_RESEARCH.md    # HunyuanVideo AI model research
+│   ├── VIDEO_GENERATION_PROJECTS_COMPARISON.md  # Comprehensive comparison of similar AI video projects
+│   ├── LONGCAT_VIDEO_RESEARCH.md  # Detailed LongCat-Video analysis
 │   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide (short-form)
 │   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
 │   ├── UNIVERSAL_KEYFRAME_GUIDE.md  # Universal keyframe guide (2-3 min videos)
