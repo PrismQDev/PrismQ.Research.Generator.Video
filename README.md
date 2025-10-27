@@ -68,6 +68,11 @@ See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for in-depth res
 - **Installation Guide**: Step-by-step setup with model weight downloads
 - **Use Cases**: Content creation, atmospheric B-roll, scene generation for narration
 - **Recommendations**: Short, medium, and long-term integration strategies for PrismQ
+- **Horror/True-Crime Workflow**: Specific workflow for vertical shorts targeting U.S. girls/women 10-30
+
+**Additional Resources:**
+- [LongCat-Video Installation Guide](docs/LONGCAT_VIDEO_INSTALLATION_GUIDE.md): Step-by-step installation for Windows + RTX 5090
+- [LongCat-Video Prompt Templates](docs/LONGCAT_VIDEO_PROMPT_TEMPLATES.md): Horror/true-crime prompt templates optimized for vertical video
 - **Limitations & Considerations**: Content safety, hardware requirements, quality expectations
 - **Installation Guide**: Hardware requirements, setup instructions, and demo scripts
 - **Detailed Analysis**: Deep dive into Meituan's approach to long-form video generation
@@ -330,6 +335,9 @@ PrismQ.Research.Generator.Video/
 ├── docs/
 │   ├── RESEARCH.md          # Visual principles research
 │   ├── RESEARCH_CS.md       # Czech translation of research
+│   ├── LONGCAT_VIDEO_RESEARCH.md  # LongCat-Video AI model research
+│   ├── LONGCAT_VIDEO_INSTALLATION_GUIDE.md  # LongCat-Video setup for Windows/RTX 5090
+│   ├── LONGCAT_VIDEO_PROMPT_TEMPLATES.md    # Horror/true-crime prompt templates
 │   ├── LONGCAT_VIDEO_RESEARCH.md   # LongCat-Video AI model research
 │   ├── HUNYUANVIDEO_RESEARCH.md    # HunyuanVideo AI model research
 │   ├── VIDEO_GENERATION_PROJECTS_COMPARISON.md  # Comprehensive comparison of similar AI video projects
