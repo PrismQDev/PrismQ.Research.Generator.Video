@@ -40,6 +40,18 @@ See [RESEARCH.md](docs/RESEARCH.md) for comprehensive documentation covering vis
 
 **Czech Translation:** See [RESEARCH_CS.md](docs/RESEARCH_CS.md) for complete Czech translation of research documentation.
 
+### LongCat-Video Research
+See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for comprehensive research on LongCat-Video, Meituan's open-source AI video generation model:
+
+- **Overview**: 13.6B parameter model for long-form video generation (minutes-long videos)
+- **Technical Architecture**: Unified dense transformer, block sparse attention, multi-reward RLHF
+- **Key Capabilities**: Text-to-video, image-to-video, video continuation
+- **Comparison Analysis**: Detailed comparison with Sora, CogVideoX, and AnimateDiff
+- **Integration Possibilities**: How LongCat-Video could complement PrismQ's engagement-optimized pipeline
+- **Installation Guide**: Hardware requirements, setup instructions, and demo scripts
+- **Use Cases**: Content creation, educational content, research applications
+- **Recommendations**: Short, medium, and long-term integration strategies for PrismQ
+
 ### Audio Story to Video Generation Guide
 See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
 
@@ -285,6 +297,7 @@ PrismQ.Research.Generator.Video/
 ├── docs/
 │   ├── RESEARCH.md          # Visual principles research
 │   ├── RESEARCH_CS.md       # Czech translation of research
+│   ├── LONGCAT_VIDEO_RESEARCH.md  # LongCat-Video AI model research
 │   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide (short-form)
 │   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
 │   ├── UNIVERSAL_KEYFRAME_GUIDE.md  # Universal keyframe guide (2-3 min videos)
