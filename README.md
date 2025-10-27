@@ -2,6 +2,8 @@
 
 High-engagement abstract video generator implementing evidence-based visual principles for maximizing watch time on short-form vertical video platforms (TikTok, Reels, Shorts).
 
+📚 **[Quick Documentation Reference](DOCUMENTATION.md)** | 📖 **[Complete Documentation Index](docs/INDEX.md)**
+
 ## Overview
 
 This project implements a complete video generation pipeline based on research into visual engagement principles:
