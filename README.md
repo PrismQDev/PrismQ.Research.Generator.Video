@@ -46,11 +46,17 @@ See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for comprehensiv
 - **Overview**: 13.6B parameter model for long-form video generation (minutes-long videos)
 - **Technical Architecture**: Unified dense transformer, block sparse attention, multi-reward RLHF
 - **Key Capabilities**: Text-to-video, image-to-video, video continuation
+- **RTX 5090 Setup Guide**: Optimized installation and configuration for high-end GPU deployment
+- **Horror/True-Crime Workflow**: Specialized integration for atmospheric content targeting US girls 10-30
+- **Prompt Templates**: 50+ ready-to-use prompts for suspense, mystery, and atmospheric scenes
+- **Vertical Video Optimization**: 9:16 aspect ratio setup for TikTok, Reels, and Shorts
+- **Practical Code Examples**: Complete integration examples with PrismQ pipeline
 - **Comparison Analysis**: Detailed comparison with Sora, CogVideoX, and AnimateDiff
-- **Integration Possibilities**: How LongCat-Video could complement PrismQ's engagement-optimized pipeline
-- **Installation Guide**: Hardware requirements, setup instructions, and demo scripts
-- **Use Cases**: Content creation, educational content, research applications
+- **Integration Possibilities**: How LongCat-Video complements PrismQ's engagement-optimized pipeline
+- **Installation Guide**: Step-by-step setup with model weight downloads
+- **Use Cases**: Content creation, atmospheric B-roll, scene generation for narration
 - **Recommendations**: Short, medium, and long-term integration strategies for PrismQ
+- **Limitations & Considerations**: Content safety, hardware requirements, quality expectations
 
 ### Audio Story to Video Generation Guide
 See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
