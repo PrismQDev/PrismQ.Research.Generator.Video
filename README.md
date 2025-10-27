@@ -90,6 +90,19 @@ See [HUNYUANVIDEO_RESEARCH.md](docs/HUNYUANVIDEO_RESEARCH.md) for comprehensive 
 - **Platform Strategy**: YouTube Shorts and TikTok content creation workflows
 - **Recommendations**: Immediate, short-term, and long-term integration strategies for horror/true crime content targeting US female audience (10-30)
 
+### LTX-Video (LTXV) Research
+See [LTXV_VIDEO_RESEARCH.md](docs/LTXV_VIDEO_RESEARCH.md) for comprehensive research on LTX-Video, Lightricks' open-source real-time video generation model:
+
+- **Overview**: Real-time video generation model with 30 FPS @ 1216×704, native 4K @ 50 FPS capability
+- **Model Family**: 13B (dev), 13B distilled, 2B distilled, FP8/INT8 variants, temporal/spatial upscalers, IC-LoRA controllers
+- **Key Capabilities**: Image-to-video, video-to-video, multi-keyframe conditioning, shot extension, real-time generation
+- **Comparison Analysis**: Detailed comparison with HunyuanVideo, AnimateDiff, and commercial models (Sora)
+- **Integration Possibilities**: Ideal for horror/true-crime shorts with multi-keyframe narrative control on RTX 5090
+- **ComfyUI Support**: Official first-party nodes with workflows (draft, quality, multiscale, IC-LoRA)
+- **Advanced Features**: TeaCache acceleration, Q8 kernels for low-VRAM, spatio-temporal guidance (STG)
+- **Future Development**: LTX-2 (late 2025) with audio+video sync, longer clips (≈10s), 4K & 50 FPS
+- **Recommendations**: Immediate integration recommended for script → VO → keyframes → video pipeline
+
 ### Audio Story to Video Generation Guide
 See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
 
@@ -336,6 +349,7 @@ PrismQ.Research.Generator.Video/
 │   ├── RESEARCH.md          # Visual principles research
 │   ├── RESEARCH_CS.md       # Czech translation of research
 │   ├── LONGCAT_VIDEO_RESEARCH.md  # LongCat-Video AI model research
+│   ├── LTXV_VIDEO_RESEARCH.md     # LTX-Video (LTXV) AI model research
 │   ├── LONGCAT_VIDEO_INSTALLATION_GUIDE.md  # LongCat-Video setup for Windows/RTX 5090
 │   ├── LONGCAT_VIDEO_PROMPT_TEMPLATES.md    # Horror/true-crime prompt templates
 │   ├── LONGCAT_VIDEO_RESEARCH.md   # LongCat-Video AI model research
