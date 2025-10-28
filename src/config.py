@@ -46,8 +46,32 @@ class GenerationConfig:
     # Overlay settings
     caption_font_size: int = 48
     caption_duration: float = 2.5  # seconds
-    progress_bar_height: int = 4  # pixels
-    progress_bar_opacity: float = 0.5
+    
+    # Progress bar settings (optimized for retention & engagement)
+    progress_bar_height: int = 3  # pixels (2-3px slim design)
+    progress_bar_opacity: float = 0.85  # Higher opacity for better visibility
+    progress_bar_y_offset: int = 0  # Offset from bottom edge (0 = very bottom)
+    progress_bar_full_width: bool = True  # Span full width of frame
+    
+    # Progress bar colors (deep red/burgundy for drama/engagement)
+    progress_bar_fg_color: Tuple[int, int, int] = (25, 25, 139)  # BGR: Deep red/burgundy
+    progress_bar_bg_color: Tuple[int, int, int] = (60, 60, 60)  # Translucent gray
+    progress_bar_bg_opacity: float = 0.4  # Background track opacity
+    
+    # Progress bar end marker (glowing dot)
+    progress_bar_marker_enabled: bool = True
+    progress_bar_marker_radius: int = 5  # Radius of glowing dot
+    progress_bar_marker_glow_radius: int = 10  # Glow effect radius
+    progress_bar_marker_color: Tuple[int, int, int] = (50, 50, 200)  # Brighter red for marker
+    
+    # Goal-gradient effect (acceleration at ~80%)
+    progress_bar_gradient_start: float = 0.80  # Start acceleration at 80%
+    progress_bar_gradient_factor: float = 1.2  # Slight acceleration multiplier
+    
+    # Shadow/contrast settings
+    progress_bar_shadow_enabled: bool = True
+    progress_bar_shadow_offset: int = 1  # Shadow offset in pixels
+    progress_bar_shadow_opacity: float = 0.6
     
     def __post_init__(self):
         """Initialize default neon colors if not provided."""

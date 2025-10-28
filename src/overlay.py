@@ -84,7 +84,15 @@ class Overlay:
     
     def draw_progress_bar(self, frame: np.ndarray, 
                          progress: float) -> np.ndarray:
-        """Draw progress bar on frame.
+        """Draw enhanced progress bar on frame.
+        
+        Implements research-backed design for retention & engagement:
+        - Slim horizontal line (2-3px) at bottom edge
+        - Bold brand-aligned foreground color (deep red/burgundy)
+        - Translucent gray background track
+        - Glowing end marker dot
+        - Goal-gradient effect (acceleration at ~80%)
+        - Shadow for contrast
         
         Args:
             frame: Input frame (H, W, C) in BGR
@@ -96,33 +104,91 @@ class Overlay:
         h, w = frame.shape[:2]
         result = frame.copy()
         
-        # Progress bar dimensions
+        # Progress bar dimensions (full width at very bottom)
         bar_height = self.config.progress_bar_height
-        bar_y = h - int(h * 0.05)  # Bottom 5% of frame
-        bar_width = int(w * 0.9)  # 90% of width
-        bar_x = (w - bar_width) // 2
+        if self.config.progress_bar_full_width:
+            bar_width = w  # Full width
+            bar_x = 0
+        else:
+            bar_width = int(w * 0.9)  # 90% of width
+            bar_x = (w - bar_width) // 2
         
-        # Background bar (dark)
-        cv2.rectangle(result, 
-                     (bar_x, bar_y), 
+        # Position at very bottom edge
+        bar_y = h - bar_height - self.config.progress_bar_y_offset
+        
+        # Apply goal-gradient effect (slight acceleration at ~80%)
+        if progress >= self.config.progress_bar_gradient_start:
+            # Calculate accelerated progress for visual effect
+            base_progress = self.config.progress_bar_gradient_start
+            remaining = progress - base_progress
+            remaining_range = 1.0 - base_progress
+            # Apply slight acceleration
+            visual_progress = base_progress + (remaining / remaining_range) ** (1.0 / self.config.progress_bar_gradient_factor) * remaining_range
+        else:
+            visual_progress = progress
+        
+        # Clamp visual progress to valid range
+        visual_progress = max(0.0, min(1.0, visual_progress))
+        
+        # Create overlay for alpha blending
+        overlay = result.copy()
+        
+        # Draw shadow if enabled (for better contrast)
+        if self.config.progress_bar_shadow_enabled:
+            shadow_y = bar_y + self.config.progress_bar_shadow_offset
+            # Background shadow
+            cv2.rectangle(overlay,
+                         (bar_x, shadow_y),
+                         (bar_x + bar_width, shadow_y + bar_height),
+                         (0, 0, 0), -1)
+            # Apply shadow with opacity
+            result = cv2.addWeighted(result, 1.0, overlay, self.config.progress_bar_shadow_opacity, 0)
+            overlay = result.copy()
+        
+        # Draw background track (translucent gray)
+        cv2.rectangle(overlay,
+                     (bar_x, bar_y),
                      (bar_x + bar_width, bar_y + bar_height),
-                     (40, 40, 40), -1)
+                     self.config.progress_bar_bg_color, -1)
         
-        # Progress fill (neon color)
-        fill_width = int(bar_width * progress)
-        neon_color = self.config.neon_colors[0]  # Cyan
-        neon_bgr = (neon_color[2], neon_color[1], neon_color[0])
+        # Apply background with its opacity
+        result = cv2.addWeighted(result, 1 - self.config.progress_bar_bg_opacity, 
+                                overlay, self.config.progress_bar_bg_opacity, 0)
+        overlay = result.copy()
+        
+        # Draw progress fill (bold brand color - deep red/burgundy)
+        fill_width = int(bar_width * visual_progress)
         
         if fill_width > 0:
-            cv2.rectangle(result,
+            cv2.rectangle(overlay,
                          (bar_x, bar_y),
                          (bar_x + fill_width, bar_y + bar_height),
-                         neon_bgr, -1)
+                         self.config.progress_bar_fg_color, -1)
         
-        # Apply opacity
-        overlay = result.copy()
-        alpha = self.config.progress_bar_opacity
-        result = cv2.addWeighted(frame, 1 - alpha, overlay, alpha, 0)
+        # Apply foreground with opacity
+        result = cv2.addWeighted(result, 1 - self.config.progress_bar_opacity, 
+                                overlay, self.config.progress_bar_opacity, 0)
+        
+        # Draw glowing end marker dot if enabled and progress > 0
+        if self.config.progress_bar_marker_enabled and fill_width > 0:
+            overlay = result.copy()
+            
+            # Calculate marker position
+            marker_x = bar_x + fill_width
+            marker_y = bar_y + (bar_height // 2)
+            
+            # Draw glow effect (larger, semi-transparent)
+            glow_radius = self.config.progress_bar_marker_glow_radius
+            cv2.circle(overlay, (marker_x, marker_y), glow_radius,
+                      self.config.progress_bar_marker_color, -1)
+            result = cv2.addWeighted(result, 0.7, overlay, 0.3, 0)
+            
+            # Draw main marker dot (smaller, more opaque)
+            overlay = result.copy()
+            marker_radius = self.config.progress_bar_marker_radius
+            cv2.circle(overlay, (marker_x, marker_y), marker_radius,
+                      self.config.progress_bar_marker_color, -1)
+            result = cv2.addWeighted(result, 0.4, overlay, 0.6, 0)
         
         return result
     
