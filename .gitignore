@@ -44,11 +44,13 @@ example_output_*
 *.edl
 *.json
 
-# Models (large files)
-models/
-*.safetensors
-*.ckpt
-*.pth
+# Models (large model weight files only - exclude documentation)
+/*.safetensors
+/*.ckpt
+/*.pth
+/models/*.safetensors
+/models/*.ckpt
+/models/*.pth
 
 # Logs
 *.log

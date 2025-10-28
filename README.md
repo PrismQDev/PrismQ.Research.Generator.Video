@@ -2,6 +2,8 @@
 
 High-engagement abstract video generator implementing evidence-based visual principles for maximizing watch time on short-form vertical video platforms (TikTok, Reels, Shorts).
 
+📚 **[Quick Documentation Reference](DOCUMENTATION.md)** | 📖 **[Complete Documentation Index](docs/INDEX.md)**
+
 ## Overview
 
 This project implements a complete video generation pipeline based on research into visual engagement principles:
@@ -16,8 +18,10 @@ This project implements a complete video generation pipeline based on research i
 
 ## Documentation
 
+📚 **[Complete Documentation Index](docs/INDEX.md)** - Browse all documentation organized by category
+
 ### Research Foundation
-See [RESEARCH.md](docs/RESEARCH.md) for comprehensive documentation covering visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
+See [RESEARCH.md](docs/research/RESEARCH.md) for comprehensive documentation covering visual principles, virality factors, and research questions for short-form mobile video content (YouTube Shorts, TikTok, Instagram Reels). Key findings include:
 
 - 23-47% higher retention rates with continuous micro-movements
 - 31-43% increase in initial engagement with high-contrast edges
@@ -38,10 +42,10 @@ See [RESEARCH.md](docs/RESEARCH.md) for comprehensive documentation covering vis
   - Multi-cultural insights from German, Japanese, Chinese, Indian, Czech, Polish, French markets
   - Performance benchmarks and A/B testing frameworks
 
-**Czech Translation:** See [RESEARCH_CS.md](docs/RESEARCH_CS.md) for complete Czech translation of research documentation.
+**Czech Translation:** See [RESEARCH_CS.md](docs/translations/RESEARCH_CS.md) for complete Czech translation of research documentation.
 
 ### Video Generation Projects Research
-See [VIDEO_GENERATION_PROJECTS_COMPARISON.md](docs/VIDEO_GENERATION_PROJECTS_COMPARISON.md) for comprehensive research and comparison of similar AI video generation projects:
+See [VIDEO_GENERATION_PROJECTS_COMPARISON.md](docs/research/VIDEO_GENERATION_PROJECTS_COMPARISON.md) for comprehensive research and comparison of similar AI video generation projects:
 
 - **Open-Source Models**: Open-Sora, HunyuanVideo, CogVideoX, LTX Video, AnimateDiff, Stable Video Diffusion
 - **Commercial Solutions**: RunwayML Gen-3/Gen-4, OpenAI Sora, Google Veo 3
@@ -53,7 +57,7 @@ See [VIDEO_GENERATION_PROJECTS_COMPARISON.md](docs/VIDEO_GENERATION_PROJECTS_COM
 - **Future Trends**: Emerging developments in 2025 and beyond
 
 ### LongCat-Video Research (Detailed)
-See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for in-depth research specifically on LongCat-Video:
+See [LONGCAT_VIDEO_RESEARCH.md](docs/models/LONGCAT_VIDEO_RESEARCH.md) for in-depth research specifically on LongCat-Video:
 
 - **Overview**: 13.6B parameter model for long-form video generation (minutes-long videos)
 - **Technical Architecture**: Unified dense transformer, block sparse attention, multi-reward RLHF
@@ -71,14 +75,14 @@ See [LONGCAT_VIDEO_RESEARCH.md](docs/LONGCAT_VIDEO_RESEARCH.md) for in-depth res
 - **Horror/True-Crime Workflow**: Specific workflow for vertical shorts targeting U.S. girls/women 10-30
 
 **Additional Resources:**
-- [LongCat-Video Installation Guide](docs/LONGCAT_VIDEO_INSTALLATION_GUIDE.md): Step-by-step installation for Windows + RTX 5090
-- [LongCat-Video Prompt Templates](docs/LONGCAT_VIDEO_PROMPT_TEMPLATES.md): Horror/true-crime prompt templates optimized for vertical video
+- [LongCat-Video Installation Guide](docs/guides/LONGCAT_VIDEO_INSTALLATION_GUIDE.md): Step-by-step installation for Windows + RTX 5090
+- [LongCat-Video Prompt Templates](docs/guides/LONGCAT_VIDEO_PROMPT_TEMPLATES.md): Horror/true-crime prompt templates optimized for vertical video
 - **Limitations & Considerations**: Content safety, hardware requirements, quality expectations
 - **Installation Guide**: Hardware requirements, setup instructions, and demo scripts
 - **Detailed Analysis**: Deep dive into Meituan's approach to long-form video generation
 
 ### HunyuanVideo Research
-See [HUNYUANVIDEO_RESEARCH.md](docs/HUNYUANVIDEO_RESEARCH.md) for comprehensive research on HunyuanVideo, Tencent's open-source video foundation model:
+See [HUNYUANVIDEO_RESEARCH.md](docs/models/HUNYUANVIDEO_RESEARCH.md) for comprehensive research on HunyuanVideo, Tencent's open-source video foundation model:
 
 - **Overview**: 13B+ parameter model for high-quality text-to-video and image-to-video generation
 - **Technical Architecture**: 3D VAE compression, dual-stream to single-stream transformer design
@@ -91,7 +95,7 @@ See [HUNYUANVIDEO_RESEARCH.md](docs/HUNYUANVIDEO_RESEARCH.md) for comprehensive 
 - **Recommendations**: Immediate, short-term, and long-term integration strategies for horror/true crime content targeting US female audience (10-30)
 
 ### LTX-Video (LTXV) Research
-See [LTXV_VIDEO_RESEARCH.md](docs/LTXV_VIDEO_RESEARCH.md) for comprehensive research on LTX-Video, Lightricks' open-source real-time video generation model:
+See [LTXV_VIDEO_RESEARCH.md](docs/models/LTXV_VIDEO_RESEARCH.md) for comprehensive research on LTX-Video, Lightricks' open-source real-time video generation model:
 
 - **Overview**: Real-time video generation model with 30 FPS @ 1216×704, native 4K @ 50 FPS capability
 - **Model Family**: 13B (dev), 13B distilled, 2B distilled, FP8/INT8 variants, temporal/spatial upscalers, IC-LoRA controllers
@@ -104,7 +108,7 @@ See [LTXV_VIDEO_RESEARCH.md](docs/LTXV_VIDEO_RESEARCH.md) for comprehensive rese
 - **Recommendations**: Immediate integration recommended for script → VO → keyframes → video pipeline
 
 ### Audio Story to Video Generation Guide
-See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
+See [AUDIO_TO_VIDEO_GUIDE.md](docs/guides/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive guidance on transforming audio narration into visually engaging videos:
 
 - **Audio Analysis**: Speech-to-text with emotion detection and timing analysis
 - **AI Prompt Generation**: Context-aware visual prompts synchronized with audio content
@@ -115,7 +119,7 @@ See [AUDIO_TO_VIDEO_GUIDE.md](docs/AUDIO_TO_VIDEO_GUIDE.md) for comprehensive gu
 - **Prompt Engineering**: Best practices, emotion-specific templates, comprehensive prompt library
 
 ### Realistic Video Generation Guide
-See [REALISTIC_VIDEO_GUIDE.md](docs/REALISTIC_VIDEO_GUIDE.md) for comprehensive guidance on generating realistic videos that implement research principles:
+See [REALISTIC_VIDEO_GUIDE.md](docs/guides/REALISTIC_VIDEO_GUIDE.md) for comprehensive guidance on generating realistic videos that implement research principles:
 
 - **AI Script Integration**: Connect AI-generated scripts to visual timing and movement patterns
 - **Multiple Movement Types**: Constant micro-movement, parallax layers, pattern breaks, oscillating movements, directional transitions
@@ -125,7 +129,7 @@ See [REALISTIC_VIDEO_GUIDE.md](docs/REALISTIC_VIDEO_GUIDE.md) for comprehensive 
 - **Production Recommendations**: Asset preparation, performance optimization, quality assurance, A/B testing
 
 ### Keyframe Generation Guide
-See [KEYFRAME_GUIDE.md](docs/KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
+See [KEYFRAME_GUIDE.md](docs/guides/KEYFRAME_GUIDE.md) for a complete guide on generating strategic keyframes from subtitle-derived scenes:
 
 - Subtitle-to-scene segmentation strategies
 - Platform-specific keyframe timing (YouTube Shorts, TikTok, Instagram Reels)
@@ -134,7 +138,7 @@ See [KEYFRAME_GUIDE.md](docs/KEYFRAME_GUIDE.md) for a complete guide on generati
 - Best practices for maximizing engagement through scene-based visual structure
 
 ### Universal Keyframe Generation for 2-3 Minute Videos
-See [UNIVERSAL_KEYFRAME_GUIDE.md](docs/UNIVERSAL_KEYFRAME_GUIDE.md) for optimal keyframe generation strategy for longer-form content:
+See [UNIVERSAL_KEYFRAME_GUIDE.md](docs/guides/UNIVERSAL_KEYFRAME_GUIDE.md) for optimal keyframe generation strategy for longer-form content:
 
 - **Step-by-step workflow from SRT subtitles to keyframes**
 - Scene-based keyframe architecture for 2-3 minute videos
@@ -156,7 +160,7 @@ This generates:
 - `output_enhanced.srt` - Subtitles with scene markers
 
 ### SDXL High-Quality Keyframe Generation
-See [SDXL_KEYFRAME_GUIDE.md](docs/SDXL_KEYFRAME_GUIDE.md) for comprehensive guidance on generating high-quality keyframes locally using SDXL:
+See [SDXL_KEYFRAME_GUIDE.md](docs/guides/SDXL_KEYFRAME_GUIDE.md) for comprehensive guidance on generating high-quality keyframes locally using SDXL:
 
 - **Model Stack**: SDXL Base + Refiner + Tiled VAE + Real-ESRGAN pipeline
 - **Optimal Settings**: Resolution, samplers, CFG scales, and refinement parameters
@@ -345,39 +349,49 @@ black --check src/
 ```
 PrismQ.Research.Generator.Video/
 ├── README.md                 # This file
+├── QUICKSTART.md            # Quick start guide
 ├── docs/
-│   ├── RESEARCH.md          # Visual principles research
-│   ├── RESEARCH_CS.md       # Czech translation of research
-│   ├── LONGCAT_VIDEO_RESEARCH.md  # LongCat-Video AI model research
-│   ├── LTXV_VIDEO_RESEARCH.md     # LTX-Video (LTXV) AI model research
-│   ├── LONGCAT_VIDEO_INSTALLATION_GUIDE.md  # LongCat-Video setup for Windows/RTX 5090
-│   ├── LONGCAT_VIDEO_PROMPT_TEMPLATES.md    # Horror/true-crime prompt templates
-│   ├── LONGCAT_VIDEO_RESEARCH.md   # LongCat-Video AI model research
-│   ├── HUNYUANVIDEO_RESEARCH.md    # HunyuanVideo AI model research
-│   ├── VIDEO_GENERATION_PROJECTS_COMPARISON.md  # Comprehensive comparison of similar AI video projects
-│   ├── LONGCAT_VIDEO_RESEARCH.md  # Detailed LongCat-Video analysis
-│   ├── KEYFRAME_GUIDE.md    # Keyframe generation guide (short-form)
-│   ├── KEYFRAME_GUIDE_CS.md # Czech keyframe guide
-│   ├── UNIVERSAL_KEYFRAME_GUIDE.md  # Universal keyframe guide (2-3 min videos)
-│   ├── SDXL_KEYFRAME_GUIDE.md     # SDXL high-quality keyframe generation
-│   ├── AUDIO_TO_VIDEO_GUIDE.md    # Audio-to-video generation guide
-│   ├── AUDIO_TO_VIDEO_GUIDE_CS.md # Czech audio-to-video guide
-│   └── REALISTIC_VIDEO_GUIDE.md   # Realistic video generation guide
+│   ├── INDEX.md            # Complete documentation index
+│   ├── summaries/          # Implementation summaries
+│   │   ├── README.md                      # Summaries index
+│   │   ├── PIPELINE_IMPLEMENTATION.md     # Pipeline summary
+│   │   ├── PIPELINE_IMPLEMENTATION_CS.md  # Czech pipeline summary
+│   │   └── KEYFRAME_IMPLEMENTATION.md     # Keyframe summary
+│   ├── research/           # Core research documents
+│   │   ├── RESEARCH.md                         # Visual principles research
+│   │   └── VIDEO_GENERATION_PROJECTS_COMPARISON.md  # AI video projects comparison
+│   ├── models/             # AI model research
+│   │   ├── HUNYUANVIDEO_RESEARCH.md           # HunyuanVideo model analysis
+│   │   ├── LONGCAT_VIDEO_RESEARCH.md          # LongCat-Video model analysis
+│   │   └── LTXV_VIDEO_RESEARCH.md             # LTX-Video model analysis
+│   ├── guides/             # Implementation guides
+│   │   ├── AUDIO_TO_VIDEO_GUIDE.md            # Audio-to-video generation
+│   │   ├── KEYFRAME_GUIDE.md                  # Keyframe generation (short-form)
+│   │   ├── LONGCAT_VIDEO_INSTALLATION_GUIDE.md # LongCat setup (Windows/RTX 5090)
+│   │   ├── LONGCAT_VIDEO_PROMPT_TEMPLATES.md  # Horror/true-crime prompts
+│   │   ├── REALISTIC_VIDEO_GUIDE.md           # Realistic video generation
+│   │   ├── SDXL_KEYFRAME_GUIDE.md             # SDXL high-quality keyframes
+│   │   └── UNIVERSAL_KEYFRAME_GUIDE.md        # Universal keyframes (2-3 min)
+│   └── translations/       # Czech translations
+│       ├── AUDIO_TO_VIDEO_GUIDE_CS.md
+│       ├── KEYFRAME_GUIDE_CS.md
+│       ├── RESEARCH_CS.md
+│       └── VIDEO_GENERATION_PROJECTS_COMPARISON_CS.md
 ├── requirements.txt         # Python dependencies
 ├── .gitignore              # Git ignore patterns
 ├── example.py              # Example usage script
 ├── example_universal_keyframes.py  # Universal keyframes examples
 ├── example_srt_to_keyframes.py     # SRT to keyframes demo
 ├── example_video.srt        # Sample SRT file for testing
-└── src/
-    ├── __init__.py         # Package initialization
-    ├── config.py           # Configuration dataclass
-    ├── generator.py        # Base video generation
-    ├── motion.py           # Motion effects
-    ├── visual_style.py     # Visual processing
-    ├── overlay.py          # Captions and progress bar
-    ├── pipeline.py         # Main orchestration
-    ├── universal_keyframes.py  # Universal keyframe generation
+├── src/
+│   ├── __init__.py         # Package initialization
+│   ├── config.py           # Configuration dataclass
+│   ├── generator.py        # Base video generation
+│   ├── motion.py           # Motion effects
+│   ├── visual_style.py     # Visual processing
+│   ├── overlay.py          # Captions and progress bar
+│   ├── pipeline.py         # Main orchestration
+│   ├── universal_keyframes.py  # Universal keyframe generation
     └── srt_to_keyframes.py     # SRT subtitle to keyframes workflow
 ```
 
