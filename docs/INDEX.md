@@ -37,6 +37,16 @@ Core research and analysis documents that form the theoretical foundation of the
   - Reddit story video strategies for target audiences
   - Performance benchmarks and A/B testing frameworks
 
+- **[REDDIT_STORIES_EXPANDED.md](research/REDDIT_STORIES_EXPANDED.md)** - ⭐ NEW: Expanded Reddit stories research:
+  - 50+ content topics and story categories
+  - Deep dive into 18-24 demographic behavior
+  - Platform-specific strategies (TikTok, YouTube Shorts, Instagram Reels)
+  - Psychological triggers for 12-25 female audiences
+  - Neurological engagement mechanisms
+  - Emerging trends and future directions (2024-2025)
+  - Performance metrics and success indicators
+  - Content calendar and posting strategies
+
 - **[VIDEO_GENERATION_PROJECTS_COMPARISON.md](research/VIDEO_GENERATION_PROJECTS_COMPARISON.md)** - Comprehensive comparison of AI video generation projects:
   - Open-source models (Open-Sora, CogVideoX, AnimateDiff, etc.)
   - Commercial solutions (RunwayML Gen-3/Gen-4, OpenAI Sora, Google Veo 3)
@@ -78,6 +88,25 @@ Detailed research and analysis of specific AI video generation models.
 **Location:** `docs/guides/`
 
 Practical implementation guides and how-to documentation.
+
+#### Content Creation Guides
+
+- **[PROMPT_LIBRARY.md](guides/PROMPT_LIBRARY.md)** - ⭐ NEW: Comprehensive prompt library for Reddit stories:
+  - 200+ ready-to-use prompts categorized by topic
+  - Optimized for US women ages 12-25
+  - Platform-specific optimization (TikTok, YouTube Shorts, Instagram Reels)
+  - Story structure formulas and engagement triggers
+  - Customization framework and A/B testing strategies
+  - Ethical guidelines and content safety
+
+- **[CONTENT_PIPELINE_RECOMMENDATIONS.md](guides/CONTENT_PIPELINE_RECOMMENDATIONS.md)** - ⭐ NEW: Technical pipeline for 9:16 HD 60fps video:
+  - Three-tier pipeline approach (Basic, Advanced, Professional)
+  - Hardware and software recommendations by budget
+  - Platform-specific export optimization
+  - Frame rate strategy (30fps vs 60fps)
+  - Workflow optimization and batching strategies
+  - Cost analysis and ROI expectations
+  - Scaling path from beginner to enterprise
 
 #### Video Generation Guides
 
@@ -157,6 +186,12 @@ Czech translations of key documentation.
 
 ### By Use Case
 
+**Reddit Stories & Real-Life Drama (NEW!):**
+- Start with [REDDIT_STORIES_EXPANDED.md](research/REDDIT_STORIES_EXPANDED.md) for expanded research
+- Use [PROMPT_LIBRARY.md](guides/PROMPT_LIBRARY.md) for 200+ story prompts
+- Follow [CONTENT_PIPELINE_RECOMMENDATIONS.md](guides/CONTENT_PIPELINE_RECOMMENDATIONS.md) for technical setup
+- Target: US women ages 12-25 on TikTok, YouTube Shorts, Instagram Reels
+
 **Short-form vertical videos (15-60 seconds):**
 - Start with [RESEARCH.md](research/RESEARCH.md) for principles
 - Use [KEYFRAME_GUIDE.md](guides/KEYFRAME_GUIDE.md) for scene structure
@@ -177,6 +212,10 @@ Czech translations of key documentation.
 
 **High-quality keyframes:**
 - Follow [SDXL_KEYFRAME_GUIDE.md](guides/SDXL_KEYFRAME_GUIDE.md)
+
+**9:16 HD 60fps Production:**
+- Review [CONTENT_PIPELINE_RECOMMENDATIONS.md](guides/CONTENT_PIPELINE_RECOMMENDATIONS.md)
+- Choose pipeline based on budget and volume
 
 ### By Platform
 
@@ -212,11 +251,13 @@ Czech translations of key documentation.
 
 ## 📊 Documentation Statistics
 
-- **Total documents:** 24 files
+- **Total documents:** 26 files (⭐ 3 new!)
 - **Implementation summaries:** 3 documents
-- **Research papers:** 2 documents
+- **Research papers:** 3 documents (⭐ 1 new: REDDIT_STORIES_EXPANDED.md)
 - **AI model analyses:** 3 documents
-- **Implementation guides:** 8 documents
+- **Implementation guides:** 9 documents (⭐ 2 new: PROMPT_LIBRARY.md, CONTENT_PIPELINE_RECOMMENDATIONS.md)
+- **Translations:** 4 documents (Czech)
+- **Total lines:** ~30,000+ lines of documentation (⭐ +10,400 lines added)
 - **Translations:** 4 documents (Czech)
 - **Total lines:** ~26,000+ lines of documentation
 

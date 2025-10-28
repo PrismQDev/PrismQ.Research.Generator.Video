@@ -41,6 +41,9 @@ See [RESEARCH.md](docs/research/RESEARCH.md) for comprehensive documentation cov
   - Age-based content optimization and psychological triggers
   - Multi-cultural insights from German, Japanese, Chinese, Indian, Czech, Polish, French markets
   - Performance benchmarks and A/B testing frameworks
+  - **NEW: [REDDIT_STORIES_EXPANDED.md](docs/research/REDDIT_STORIES_EXPANDED.md)** - Expanded research with 50+ content topics, deep audience insights, and platform strategies
+  - **NEW: [PROMPT_LIBRARY.md](docs/guides/PROMPT_LIBRARY.md)** - 200+ ready-to-use prompts for Reddit stories and real-life drama
+  - **NEW: [CONTENT_PIPELINE_RECOMMENDATIONS.md](docs/guides/CONTENT_PIPELINE_RECOMMENDATIONS.md)** - Complete technical pipelines for 9:16 HD 60fps video generation
 
 **Czech Translation:** See [RESEARCH_CS.md](docs/translations/RESEARCH_CS.md) for complete Czech translation of research documentation.
 
