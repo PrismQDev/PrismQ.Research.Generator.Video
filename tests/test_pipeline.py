@@ -198,6 +198,87 @@ class TestOverlay(unittest.TestCase):
         # Should be different from original due to progress bar
         self.assertFalse(np.array_equal(result, self.test_frame))
     
+    def test_progress_bar_at_zero(self):
+        """Test progress bar at 0% progress."""
+        result = self.overlay.draw_progress_bar(self.test_frame, 0.0)
+        
+        self.assertEqual(result.shape, self.test_frame.shape)
+        # Should still have background track
+        self.assertFalse(np.array_equal(result, self.test_frame))
+    
+    def test_progress_bar_at_full(self):
+        """Test progress bar at 100% progress."""
+        result = self.overlay.draw_progress_bar(self.test_frame, 1.0)
+        
+        self.assertEqual(result.shape, self.test_frame.shape)
+        # Should be different from original
+        self.assertFalse(np.array_equal(result, self.test_frame))
+    
+    def test_progress_bar_gradient_effect(self):
+        """Test goal-gradient effect at 80%+ progress."""
+        # Test before gradient threshold
+        result_70 = self.overlay.draw_progress_bar(self.test_frame, 0.70)
+        
+        # Test at gradient threshold
+        result_80 = self.overlay.draw_progress_bar(self.test_frame, 0.80)
+        
+        # Test after gradient threshold
+        result_90 = self.overlay.draw_progress_bar(self.test_frame, 0.90)
+        
+        # All should be valid frames
+        self.assertEqual(result_70.shape, self.test_frame.shape)
+        self.assertEqual(result_80.shape, self.test_frame.shape)
+        self.assertEqual(result_90.shape, self.test_frame.shape)
+        
+        # All should be different from each other
+        self.assertFalse(np.array_equal(result_70, result_80))
+        self.assertFalse(np.array_equal(result_80, result_90))
+    
+    def test_progress_bar_config_values(self):
+        """Test progress bar configuration values."""
+        # Verify config has expected values
+        self.assertEqual(self.config.progress_bar_height, 3)
+        self.assertTrue(self.config.progress_bar_full_width)
+        self.assertTrue(self.config.progress_bar_marker_enabled)
+        self.assertTrue(self.config.progress_bar_shadow_enabled)
+        self.assertEqual(self.config.progress_bar_gradient_start, 0.80)
+    
+    def test_progress_bar_with_marker_disabled(self):
+        """Test progress bar with glowing marker disabled."""
+        # Create config with marker disabled
+        config_no_marker = GenerationConfig()
+        config_no_marker.progress_bar_marker_enabled = False
+        overlay_no_marker = Overlay(config_no_marker)
+        
+        result = overlay_no_marker.draw_progress_bar(self.test_frame, 0.5)
+        
+        self.assertEqual(result.shape, self.test_frame.shape)
+        # Should still be different from original due to progress bar
+        self.assertFalse(np.array_equal(result, self.test_frame))
+    
+    def test_progress_bar_with_shadow_disabled(self):
+        """Test progress bar with shadow disabled."""
+        # Create config with shadow disabled
+        config_no_shadow = GenerationConfig()
+        config_no_shadow.progress_bar_shadow_enabled = False
+        overlay_no_shadow = Overlay(config_no_shadow)
+        
+        result = overlay_no_shadow.draw_progress_bar(self.test_frame, 0.5)
+        
+        self.assertEqual(result.shape, self.test_frame.shape)
+        # Should still be different from original due to progress bar
+        self.assertFalse(np.array_equal(result, self.test_frame))
+    
+    def test_progress_bar_various_progress_values(self):
+        """Test progress bar with various progress values."""
+        progress_values = [0.0, 0.1, 0.25, 0.5, 0.75, 0.85, 0.95, 1.0]
+        
+        for progress in progress_values:
+            with self.subTest(progress=progress):
+                result = self.overlay.draw_progress_bar(self.test_frame, progress)
+                self.assertEqual(result.shape, self.test_frame.shape)
+                self.assertIsInstance(result, np.ndarray)
+    
     def test_apply_overlays(self):
         """Test overlay application."""
         self.overlay.add_caption("Test", 0)
