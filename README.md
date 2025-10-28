@@ -140,6 +140,17 @@ See [KEYFRAME_GUIDE.md](docs/guides/KEYFRAME_GUIDE.md) for a complete guide on g
 - Implementation code examples and workflows
 - Best practices for maximizing engagement through scene-based visual structure
 
+### Enhanced Progress Bar Guide
+See [PROGRESS_BAR_GUIDE.md](docs/guides/PROGRESS_BAR_GUIDE.md) for comprehensive documentation on the enhanced progress bar optimized for retention and engagement:
+
+- **Research-backed design** for short-form vertical videos (Reddit/AITA, drama content)
+- **Slim bottom-edge design** (2-3px height, full width)
+- **Visual features**: Deep red/burgundy foreground, translucent gray background, glowing end marker
+- **Psychological hooks**: Goal-gradient effect, Zeigarnik effect, time-respect cues
+- **Customization options**: Colors, markers, shadows, gradient effects
+- Complete configuration reference and usage examples
+- Optimized for TikTok, YouTube Shorts, Instagram Reels
+
 ### Universal Keyframe Generation for 2-3 Minute Videos
 See [UNIVERSAL_KEYFRAME_GUIDE.md](docs/guides/UNIVERSAL_KEYFRAME_GUIDE.md) for optimal keyframe generation strategy for longer-form content:
 
