@@ -119,6 +119,16 @@ Practical implementation guides and how-to documentation.
   - Local generation on RTX 5090
   - Troubleshooting and quality optimization
 
+#### Engagement Optimization Guides
+
+- **[PROGRESS_BAR_GUIDE.md](guides/PROGRESS_BAR_GUIDE.md)** - Enhanced progress bar for retention and engagement:
+  - Research-backed design for short-form vertical videos
+  - Slim bottom-edge design (2-3px height, full width)
+  - Visual features: Deep red/burgundy foreground, translucent gray background, glowing end marker
+  - Psychological hooks: Goal-gradient effect, Zeigarnik effect, time-respect cues
+  - Complete configuration reference and customization options
+  - Optimized for TikTok, YouTube Shorts, Instagram Reels
+
 #### Model-Specific Guides
 
 - **[LONGCAT_VIDEO_INSTALLATION_GUIDE.md](guides/LONGCAT_VIDEO_INSTALLATION_GUIDE.md)** - Step-by-step LongCat-Video setup:
@@ -150,6 +160,7 @@ Czech translations of key documentation.
 **Short-form vertical videos (15-60 seconds):**
 - Start with [RESEARCH.md](research/RESEARCH.md) for principles
 - Use [KEYFRAME_GUIDE.md](guides/KEYFRAME_GUIDE.md) for scene structure
+- Apply [PROGRESS_BAR_GUIDE.md](guides/PROGRESS_BAR_GUIDE.md) for engagement optimization
 - Apply [AUDIO_TO_VIDEO_GUIDE.md](guides/AUDIO_TO_VIDEO_GUIDE.md) if working with narration
 
 **Medium-form videos (2-3 minutes):**
@@ -201,13 +212,13 @@ Czech translations of key documentation.
 
 ## 📊 Documentation Statistics
 
-- **Total documents:** 23 files
+- **Total documents:** 24 files
 - **Implementation summaries:** 3 documents
 - **Research papers:** 2 documents
 - **AI model analyses:** 3 documents
-- **Implementation guides:** 7 documents
+- **Implementation guides:** 8 documents
 - **Translations:** 4 documents (Czech)
-- **Total lines:** ~19,600+ lines of documentation
+- **Total lines:** ~26,000+ lines of documentation
 
 ## 🔗 External Resources
 
